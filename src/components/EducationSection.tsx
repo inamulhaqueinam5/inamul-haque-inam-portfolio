@@ -8,6 +8,7 @@ import {
 import { education, personalInfo } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
 import { AnimateInView } from "@/components/AnimateInView";
+import { CardSpotlight } from "@/components/CardSpotlight";
 
 export const EducationSection: React.FC = () => {
   return (
@@ -40,39 +41,44 @@ export const EducationSection: React.FC = () => {
               delay={index * 0.1}
               duration={0.5}
               yOffset={20}
-              className="p-6 sm:p-7 rounded-2xl bg-surface border border-surface-border hover:border-brand-cyan/40 transition-all duration-300 shadow-card hover:shadow-card-hover flex flex-col justify-between group"
+              className="h-full"
             >
-              <div>
-                      {/* Header: Period & Result */}
-                      <div className="flex items-center justify-between gap-2 text-xs font-mono text-ink-tertiary mb-3">
-                        <span className="flex items-center gap-1.5">
-                          <Calendar className="w-3.5 h-3.5 text-brand-cyan" />
-                          {edu.period}
-                        </span>
-                        <span className="px-2.5 py-1 rounded-md bg-brand-cyan/15 text-brand-cyan font-semibold border border-brand-cyan/30">
-                          {edu.result}
-                        </span>
-                      </div>
+              <CardSpotlight
+                accent="cyan"
+                className="h-full p-6 sm:p-7 rounded-2xl bg-surface border border-surface-border hover:border-brand-cyan/40 transition-all duration-300 shadow-card hover:shadow-card-hover flex flex-col justify-between group"
+              >
+                <div>
+                  {/* Header: Period & Result */}
+                  <div className="flex items-center justify-between gap-2 text-xs font-mono text-ink-tertiary mb-3">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-brand-cyan" />
+                      {edu.period}
+                    </span>
+                    <span className="px-2.5 py-1 rounded-md bg-brand-cyan/15 text-brand-cyan font-semibold border border-brand-cyan/30">
+                      {edu.result}
+                    </span>
+                  </div>
 
-                      {/* Degree Title */}
-                      <h3 className="text-lg font-bold text-ink-primary group-hover:text-brand-cyan transition-colors mb-1.5">
-                        {edu.degree}
-                      </h3>
+                  {/* Degree Title */}
+                  <h3 className="text-lg font-bold text-ink-primary group-hover:text-brand-cyan transition-colors mb-1.5">
+                    {edu.degree}
+                  </h3>
 
-                      {/* Institution */}
-                      <div className="text-xs font-medium text-brand-emerald-light mb-4 flex items-center gap-1.5">
-                        <Building2 className="w-3.5 h-3.5 text-brand-emerald shrink-0" />
-                        <span>{edu.institution}</span>
-                      </div>
+                  {/* Institution */}
+                  <div className="text-xs font-medium text-brand-emerald-light mb-4 flex items-center gap-1.5">
+                    <Building2 className="w-3.5 h-3.5 text-brand-emerald shrink-0" />
+                    <span>{edu.institution}</span>
+                  </div>
 
-                      {/* Highlights */}
-                      <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed pt-3 border-t border-surface-border/60">
-                        {edu.highlights}
-                      </p>
-                    </div>
-                  </AnimateInView>
-                ))}
-              </div>
+                  {/* Highlights */}
+                  <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed pt-3 border-t border-surface-border/60">
+                    {edu.highlights}
+                  </p>
+                </div>
+              </CardSpotlight>
+            </AnimateInView>
+          ))}
+        </div>
 
               {/* Quick Highlights Strip */}
               <AnimateInView

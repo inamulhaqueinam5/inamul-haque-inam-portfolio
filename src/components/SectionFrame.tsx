@@ -178,7 +178,7 @@ export const SectionFrame: React.FC<SectionFrameProps> = ({
           <div className="flex-shrink-0">
             <button
               onClick={() => setIsCollapsed(!isCollapsed)}
-              className={`inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-surface border border-surface-border ${style.hoverBorder} text-xs font-mono font-medium text-ink-secondary hover:text-ink-primary transition-all duration-200 group shadow-card cursor-pointer`}
+              className={`inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-surface border border-surface-border ${style.hoverBorder} text-xs font-mono font-medium text-ink-secondary hover:text-ink-primary transition-all duration-200 group shadow-card cursor-pointer active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]`}
               aria-expanded={!isCollapsed}
               title={
                 isCollapsed
@@ -221,8 +221,16 @@ export const SectionFrame: React.FC<SectionFrameProps> = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.25 }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setIsCollapsed(false);
+                }
+              }}
               onClick={() => setIsCollapsed(false)}
-              className={`cursor-pointer p-5 rounded-2xl bg-surface/60 border border-surface-border ${style.hoverBorder} transition-all flex flex-col sm:flex-row items-center justify-between gap-4 group hover:bg-surface`}
+              className={`cursor-pointer p-5 rounded-2xl bg-surface/60 border border-surface-border ${style.hoverBorder} transition-all flex flex-col sm:flex-row items-center justify-between gap-4 group hover:bg-surface active:scale-[0.99] outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]`}
             >
               <div className="flex items-center gap-3.5">
                 <div
@@ -244,10 +252,10 @@ export const SectionFrame: React.FC<SectionFrameProps> = ({
                 </div>
               </div>
               <span
-                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-subtle border border-surface-border ${style.hoverBorder} text-xs font-mono ${style.textColor} font-medium transition-all`}
+                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-subtle border border-surface-border ${style.hoverBorder} text-xs font-mono ${style.textColor} font-medium transition-all group-hover:scale-105`}
               >
                 <span>{itemCount?.expandLabel ? `Expand ${itemCount.expandLabel}` : `Expand ${id}`}</span>
-                <ChevronDown className="w-3.5 h-3.5" />
+                <ChevronDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
               </span>
             </motion.div>
           )}

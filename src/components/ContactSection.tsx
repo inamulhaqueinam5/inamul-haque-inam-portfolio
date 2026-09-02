@@ -9,13 +9,14 @@ import {
 } from "lucide-react";
 import { personalInfo } from "@/data/portfolioData";
 import { CopyButton } from "@/components/CopyButton";
+import { CardSpotlight } from "@/components/CardSpotlight";
 
 export const ContactSection: React.FC = () => {
 
   return (
     <section id="contact" className="relative py-24 border-t border-surface-border overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-brand-emerald/10 rounded-full blur-[140px] pointer-events-none" />
+      {/* Background glow with gentle ambient pulse */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-brand-emerald/10 rounded-full blur-[140px] pointer-events-none animate-ambient-pulse" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center max-w-3xl mx-auto mb-14">
@@ -34,7 +35,10 @@ export const ContactSection: React.FC = () => {
         {/* Contact Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-12">
           {/* Email Card */}
-          <div className="p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-emerald/40 transition-all flex flex-col justify-between shadow-card group">
+          <CardSpotlight
+            accent="emerald"
+            className="p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-emerald/40 transition-all flex flex-col justify-between shadow-card group"
+          >
             <div>
               <div className="w-10 h-10 rounded-xl bg-brand-emerald/15 text-brand-emerald flex items-center justify-center mb-4">
                 <Mail className="w-5 h-5" />
@@ -50,16 +54,19 @@ export const ContactSection: React.FC = () => {
             <div className="flex items-center gap-2">
               <a
                 href={personalInfo.socials.email}
-                className="flex-1 py-2 px-3 rounded-lg text-xs font-semibold text-[#08090D] bg-brand-emerald hover:bg-brand-emerald-light transition-colors text-center"
+                className="flex-1 py-2 px-3 rounded-lg text-xs font-semibold text-[#08090D] bg-brand-emerald hover:bg-brand-emerald-light transition-colors text-center active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
               >
                 Send Email
               </a>
               <CopyButton value={personalInfo.email} label="Copy email address" />
             </div>
-          </div>
+          </CardSpotlight>
 
           {/* Phone Card */}
-          <div className="p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-cyan/40 transition-all flex flex-col justify-between shadow-card group">
+          <CardSpotlight
+            accent="cyan"
+            className="p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-cyan/40 transition-all flex flex-col justify-between shadow-card group"
+          >
             <div>
               <div className="w-10 h-10 rounded-xl bg-brand-cyan/15 text-brand-cyan flex items-center justify-center mb-4">
                 <Phone className="w-5 h-5" />
@@ -75,16 +82,19 @@ export const ContactSection: React.FC = () => {
             <div className="flex items-center gap-2">
               <a
                 href={`tel:${personalInfo.phone}`}
-                className="flex-1 py-2 px-3 rounded-lg text-xs font-semibold text-[#08090D] bg-brand-cyan hover:bg-brand-cyan-light transition-colors text-center"
+                className="flex-1 py-2 px-3 rounded-lg text-xs font-semibold text-[#08090D] bg-brand-cyan hover:bg-brand-cyan-light transition-colors text-center active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
               >
                 Call Now
               </a>
               <CopyButton value={personalInfo.phone} label="Copy phone number" />
             </div>
-          </div>
+          </CardSpotlight>
 
           {/* Location & Status Card */}
-          <div className="p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-amber/40 transition-all flex flex-col justify-between shadow-card group">
+          <CardSpotlight
+            accent="amber"
+            className="p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-amber/40 transition-all flex flex-col justify-between shadow-card group"
+          >
             <div>
               <div className="w-10 h-10 rounded-xl bg-brand-amber/15 text-brand-amber flex items-center justify-center mb-4">
                 <MapPin className="w-5 h-5" />
@@ -104,7 +114,7 @@ export const ContactSection: React.FC = () => {
               <span className="w-2 h-2 rounded-full bg-brand-emerald animate-ping" />
               <span>Full-Time Ready</span>
             </div>
-          </div>
+          </CardSpotlight>
         </div>
 
         {/* Social Presence Links */}
@@ -114,7 +124,7 @@ export const ContactSection: React.FC = () => {
             href={personalInfo.socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface border border-surface-border hover:border-brand-cyan/40 text-xs font-mono text-ink-secondary hover:text-ink-primary transition-all group"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface border border-surface-border hover:border-brand-cyan/40 text-xs font-mono text-ink-secondary hover:text-ink-primary transition-all group active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
             aria-label="Inamul Haque Inam on GitHub"
           >
             <span>GitHub Profile</span>
@@ -124,7 +134,7 @@ export const ContactSection: React.FC = () => {
             href={personalInfo.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface border border-surface-border hover:border-brand-emerald/40 text-xs font-mono text-ink-secondary hover:text-ink-primary transition-all group"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface border border-surface-border hover:border-brand-emerald/40 text-xs font-mono text-ink-secondary hover:text-ink-primary transition-all group active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
             aria-label="Inamul Haque Inam on LinkedIn"
           >
             <span>LinkedIn Profile</span>
@@ -134,7 +144,7 @@ export const ContactSection: React.FC = () => {
             href={personalInfo.socials.facebook}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface border border-surface-border hover:border-brand-amber/40 text-xs font-mono text-ink-secondary hover:text-ink-primary transition-all group"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface border border-surface-border hover:border-brand-amber/40 text-xs font-mono text-ink-secondary hover:text-ink-primary transition-all group active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-brand-amber focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
             aria-label="Inamul Haque Inam on Facebook"
           >
             <span>Facebook Profile</span>
@@ -156,7 +166,7 @@ export const ContactSection: React.FC = () => {
           <div className="flex items-center gap-3 shrink-0">
             <a
               href="mailto:inamulhaqueinam5@gmail.com?subject=Resume%20Request%20-%20Inamul%20Haque%20Inam"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs font-semibold text-[#08090D] bg-brand-emerald hover:bg-brand-emerald-light shadow-glow-emerald transition-all"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs font-semibold text-[#08090D] bg-brand-emerald hover:bg-brand-emerald-light shadow-glow-emerald transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
             >
               <FileText className="w-4 h-4" />
               <span>Get Comprehensive CV</span>

@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { Project } from "@/types";
 import { AnimateInView } from "@/components/AnimateInView";
+import { CardSpotlight } from "@/components/CardSpotlight";
 import { EvidenceAction } from "@/components/EvidenceAction";
 
 export interface ProjectCardProps {
@@ -20,9 +21,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0 }) 
       delay={index * 0.1}
       duration={0.6}
       yOffset={25}
-      className="rounded-2xl bg-surface border border-surface-border hover:border-brand-cyan/40 transition-all p-6 sm:p-8 lg:p-10 shadow-card hover:shadow-card-hover group"
+      className="h-full"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <CardSpotlight
+        accent="cyan"
+        className="rounded-2xl bg-surface border border-surface-border hover:border-brand-cyan/40 transition-all p-6 sm:p-8 lg:p-10 shadow-card hover:shadow-card-hover group"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Title, Subtitle, Story, Impact */}
         <div className="lg:col-span-7 flex flex-col justify-between">
           <div>
@@ -139,6 +144,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index = 0 }) 
           </div>
         </div>
       </div>
+      </CardSpotlight>
     </AnimateInView>
   );
 };

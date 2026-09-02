@@ -13,8 +13,8 @@ export const Hero: React.FC = () => {
     <section className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand-emerald/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-[400px] h-[300px] bg-brand-cyan/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand-emerald/10 rounded-full blur-[120px] pointer-events-none animate-ambient-pulse" />
+      <div className="absolute top-1/3 right-1/4 w-[400px] h-[300px] bg-brand-cyan/10 rounded-full blur-[100px] pointer-events-none animate-ambient-pulse-reverse" />
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Availability Badge */}
@@ -92,7 +92,7 @@ export const Hero: React.FC = () => {
         >
           <a
             href="#research"
-            className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-[#08090D] bg-brand-emerald hover:bg-brand-emerald-light rounded-xl shadow-glow-emerald transition-all hover:scale-[1.02]"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-[#08090D] bg-brand-emerald hover:bg-brand-emerald-light rounded-xl shadow-glow-emerald transition-all hover:scale-[1.02] active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
           >
             <BookOpen className="w-4 h-4" />
             <span>Explore Published Research</span>
@@ -101,7 +101,7 @@ export const Hero: React.FC = () => {
 
           <a
             href="#projects"
-            className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-ink-primary bg-surface-subtle hover:bg-surface-elevated border border-surface-border hover:border-brand-cyan/40 rounded-xl transition-all hover:scale-[1.02]"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-ink-primary bg-surface-subtle hover:bg-surface-elevated border border-surface-border hover:border-brand-cyan/40 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
           >
             <Layers className="w-4 h-4 text-brand-cyan" />
             <span>View Projects</span>
@@ -109,7 +109,7 @@ export const Hero: React.FC = () => {
 
           <a
             href="#contact"
-            className="inline-flex items-center gap-2.5 px-5 py-3.5 text-sm font-medium text-ink-secondary hover:text-ink-primary border border-surface-border bg-surface/40 hover:bg-surface rounded-xl transition-all"
+            className="inline-flex items-center gap-2.5 px-5 py-3.5 text-sm font-medium text-ink-secondary hover:text-ink-primary border border-surface-border hover:border-brand-emerald/40 bg-surface/40 hover:bg-surface rounded-xl transition-all active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
           >
             <Mail className="w-4 h-4 text-brand-emerald" />
             <span>Get in Touch</span>
