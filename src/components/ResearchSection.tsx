@@ -95,7 +95,7 @@ export const ResearchSection: React.FC = () => {
                       key={idx}
                       className="p-2.5 rounded-lg bg-[#08090D] border border-surface-border text-center"
                     >
-                      <div className="text-xs sm:text-sm font-bold font-mono text-ink-primary text-brand-emerald">
+                      <div className="text-xs sm:text-sm font-bold font-mono text-ink-primary text-brand-emerald tracking-tight">
                         {m.value}
                       </div>
                       <div className="text-[10px] text-ink-tertiary mt-0.5 truncate">

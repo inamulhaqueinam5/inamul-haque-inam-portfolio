@@ -97,7 +97,7 @@ export const publications: Publication[] = [
     problem: "High-fidelity Polycystic Ovary Syndrome (PCOS) diagnosis hindered by high feature dimensionality and opaque 'black-box' medical predictions.",
     methodology: "Proposed the AIM-PDCF ensemble architecture combined with QuantumGraphRFE (Quantum Graph-based Recursive Feature Elimination), using graph theory and quantum-inspired ranking to isolate metabolic/hormonal biomarkers with SHAP explanations.",
     metrics: [
-      { label: "Algorithm", value: "QuantumGraphRFE" },
+      { label: "Algorithm", value: "QuantumGraph RFE" },
       { label: "Architecture", value: "AIM-PDCF Ensemble" },
       { label: "Interpretability", value: "Clinician-Friendly SHAP" },
     ],
