@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export interface AnimateInViewProps {
   children: React.ReactNode;
@@ -17,20 +17,28 @@ export const AnimateInView: React.FC<AnimateInViewProps> = ({
   className,
   delay = 0,
   yOffset = 20,
-  duration = 0.5,
+  duration = 0.55,
   as = "div",
 }) => {
+  const shouldReduceMotion = useReducedMotion();
   const MotionComponent = motion[as] as typeof motion.div;
+
+  const initialY = shouldReduceMotion ? 0 : yOffset;
 
   return (
     <MotionComponent
-      initial={{ opacity: 0, y: yOffset }}
+      initial={{ opacity: 0, y: initialY }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration, delay, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{
+        duration: shouldReduceMotion ? 0.2 : duration,
+        delay: shouldReduceMotion ? 0 : delay,
+        ease: [0.16, 1, 0.3, 1],
+      }}
       className={className}
     >
       {children}
     </MotionComponent>
   );
 };
+

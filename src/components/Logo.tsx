@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { User } from "lucide-react";
 import { personalInfo } from "@/data/portfolioData";
 
@@ -29,10 +30,13 @@ export const Logo: React.FC<LogoProps> = ({ className = "", size = "md", imageUr
     >
       <div className="w-full h-full bg-[#0B0D14] rounded-[10px] flex items-center justify-center relative overflow-hidden">
         {avatarSrc ? (
-          <img
+          <Image
             src={avatarSrc}
             alt={personalInfo.name}
+            width={48}
+            height={48}
             className="w-full h-full object-cover rounded-[10px]"
+            unoptimized
           />
         ) : (
           <>

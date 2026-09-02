@@ -27,6 +27,10 @@
     color: #ffffff;
   }
 
+  * {
+    caret-color: #10b981;
+  }
+
   /* Custom subtle scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
@@ -61,3 +65,47 @@
     transparent 70%
   );
 }
+
+/* GPU-accelerated ambient lighting pulse */
+@keyframes ambient-pulse {
+  0%, 100% {
+    opacity: 0.10;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.16;
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+}
+
+.animate-ambient-pulse {
+  animation: ambient-pulse 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes ambient-pulse-reverse {
+  0%, 100% {
+    opacity: 0.08;
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.14;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+.animate-ambient-pulse-reverse {
+  animation: ambient-pulse-reverse 10s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ambient-pulse,
+  .animate-ambient-pulse-reverse {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+

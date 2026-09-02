@@ -10,6 +10,7 @@ import {
 import { experiences } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
 import { AnimateInView } from "@/components/AnimateInView";
+import { CardSpotlight } from "@/components/CardSpotlight";
 
 export const ExperienceSection: React.FC = () => {
   return (
@@ -34,8 +35,12 @@ export const ExperienceSection: React.FC = () => {
               delay={index * 0.1}
               duration={0.5}
               yOffset={20}
-              className="rounded-2xl bg-surface border border-surface-border hover:border-brand-emerald/40 transition-all p-6 sm:p-8 flex flex-col justify-between shadow-card hover:shadow-card-hover group"
+              className="h-full"
             >
+              <CardSpotlight
+                accent="emerald"
+                className="h-full rounded-2xl bg-surface border border-surface-border hover:border-brand-emerald/40 transition-all p-6 sm:p-8 flex flex-col justify-between shadow-card hover:shadow-card-hover group"
+              >
               <div>
                 {/* Header: Company, Location, Period */}
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
@@ -99,6 +104,7 @@ export const ExperienceSection: React.FC = () => {
                   ))}
                 </div>
               </div>
+              </CardSpotlight>
             </AnimateInView>
           ))}
               </div>

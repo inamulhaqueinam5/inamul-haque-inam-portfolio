@@ -10,6 +10,7 @@ import {
 import { publications } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
 import { AnimateInView } from "@/components/AnimateInView";
+import { CardSpotlight } from "@/components/CardSpotlight";
 import { EvidenceAction } from "@/components/EvidenceAction";
 
 export const ResearchSection: React.FC = () => {
@@ -36,8 +37,12 @@ export const ResearchSection: React.FC = () => {
               delay={index * 0.1}
               duration={0.5}
               yOffset={20}
-              className="relative rounded-2xl bg-surface border border-surface-border hover:border-surface-border-hover transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between shadow-card hover:shadow-card-hover group"
+              className="h-full"
             >
+              <CardSpotlight
+                accent="emerald"
+                className="h-full rounded-2xl bg-surface border border-surface-border hover:border-surface-border-hover transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between shadow-card hover:shadow-card-hover group"
+              >
               {/* Header: Venue & Status */}
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
@@ -147,6 +152,7 @@ export const ResearchSection: React.FC = () => {
                   </span>
                 ))}
               </div>
+              </CardSpotlight>
             </AnimateInView>
           ))}
         </div>

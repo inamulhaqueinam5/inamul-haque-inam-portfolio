@@ -92,10 +92,10 @@ export const EvidenceAction: React.FC<EvidenceActionProps> = ({
   // Verify variant is compact inline text link, others are rounded button/pills
   const baseClass =
     variant === "verify"
-      ? "inline-flex items-center gap-1 text-xs font-mono transition-colors group"
+      ? "inline-flex items-center gap-1 text-xs font-mono transition-colors group outline-none focus-visible:underline focus-visible:ring-1 focus-visible:ring-brand-emerald rounded"
       : variant === "demo" || variant === "repo"
-      ? "inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono border transition-all duration-200 group"
-      : "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border transition-all duration-200 group";
+      ? "inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono border transition-all duration-200 group active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
+      : "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium border transition-all duration-200 group active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]";
 
   const iconClass =
     variant === "verify"

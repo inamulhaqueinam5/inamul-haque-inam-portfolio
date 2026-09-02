@@ -6,6 +6,7 @@ import {
 import { credentials } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
 import { AnimateInView } from "@/components/AnimateInView";
+import { CardSpotlight } from "@/components/CardSpotlight";
 import { EvidenceAction } from "@/components/EvidenceAction";
 
 export const CertificationsSection: React.FC = () => {
@@ -32,8 +33,12 @@ export const CertificationsSection: React.FC = () => {
                     delay={index * 0.08}
                     duration={0.5}
                     yOffset={20}
-                    className="p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-emerald/40 transition-all duration-300 shadow-card hover:shadow-card-hover flex flex-col justify-between group"
+                    className="h-full"
                   >
+                    <CardSpotlight
+                      accent="amber"
+                      className="h-full p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-emerald/40 transition-all duration-300 shadow-card hover:shadow-card-hover flex flex-col justify-between group"
+                    >
                     <div>
                       {/* Header: Issuer Badge & Date */}
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
@@ -86,6 +91,7 @@ export const CertificationsSection: React.FC = () => {
                         </span>
                       ))}
                     </div>
+                    </CardSpotlight>
                   </AnimateInView>
                 ))}
               </div>
