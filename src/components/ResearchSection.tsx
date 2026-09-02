@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import {
   BookOpen,
   ExternalLink,
@@ -9,83 +9,29 @@ import {
   BarChart2,
   FileCheck2,
   CheckCircle2,
-  Layers,
-  ChevronDown,
   Clock,
 } from "lucide-react";
 import { publications } from "@/data/portfolioData";
+import { SectionFrame } from "@/components/SectionFrame";
 
 export const ResearchSection: React.FC = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
-  useEffect(() => {
-    const handleHashCheck = () => {
-      if (window.location.hash === "#research") {
-        setIsCollapsed(false);
-      }
-    };
-    handleHashCheck();
-    window.addEventListener("hashchange", handleHashCheck);
-    return () => window.removeEventListener("hashchange", handleHashCheck);
-  }, []);
-
   return (
-    <section id="research" className="relative py-24 border-t border-surface-border bg-surface-subtle/40">
-      {/* Subtle ambient light */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-brand-cyan/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/30 text-xs font-mono font-semibold text-brand-emerald-light mb-4">
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>PEER-REVIEWED PUBLICATIONS</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink-primary mb-4">
-              International Research &amp; Publications
-            </h2>
-            <p className="text-base text-ink-secondary leading-relaxed">
-              Peer-reviewed scientific publications focusing on Explainable AI, clinical predictive modeling, automated feature selection and dual-stream deep learning architectures.
-            </p>
-          </div>
-
-          {/* Section Collapse Toggle */}
-          <div className="flex-shrink-0">
-            <button
-              onClick={() => setIsCollapsed(!isCollapsed)}
-              className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-surface border border-surface-border hover:border-brand-emerald/50 text-xs font-mono font-medium text-ink-secondary hover:text-ink-primary transition-all duration-200 group shadow-card cursor-pointer"
-              aria-expanded={!isCollapsed}
-              title={isCollapsed ? "Expand research section" : "Collapse research section"}
-            >
-              <span
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  isCollapsed ? "bg-ink-tertiary" : "bg-brand-emerald shadow-[0_0_8px_rgba(16,185,129,0.8)]"
-                }`}
-              />
-              <span>{isCollapsed ? `Expand (${publications.length} Papers)` : "Collapse Section"}</span>
-              <ChevronDown
-                className={`w-4 h-4 text-brand-emerald transition-transform duration-300 ${
-                  isCollapsed ? "" : "rotate-180"
-                }`}
-              />
-            </button>
-          </div>
-        </div>
-
-        {/* Content with Animation */}
-        <AnimatePresence initial={false} mode="wait">
-          {!isCollapsed ? (
-            <motion.div
-              key="research-expanded"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="overflow-hidden"
-            >
-              {/* Publications Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-2">
+    <SectionFrame
+      id="research"
+      badge={{ label: "PEER-REVIEWED PUBLICATIONS", icon: BookOpen }}
+      title="International Research & Publications"
+      description="Peer-reviewed scientific publications focusing on Explainable AI, clinical predictive modeling, automated feature selection and dual-stream deep learning architectures."
+      accent="emerald"
+      backgroundClassName="bg-surface-subtle/40"
+      ambientGlow={{ color: "cyan", position: "left" }}
+      itemCount={{
+        count: publications.length,
+        label: "Peer-Reviewed Scientific Publications",
+        summary: "IEEE BECITHCON 2025 • Elsevier 2026 • IEEE ICCIT 2025 (SHAP, XAI, Ensembles)",
+        expandLabel: "Publications",
+      }}
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-2">
           {publications.map((pub, index) => (
             <motion.div
               key={pub.id}
@@ -219,39 +165,7 @@ export const ResearchSection: React.FC = () => {
             </motion.div>
           ))}
         </div>
-      </motion.div>
-          ) : (
-            <motion.div
-              key="research-collapsed"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.25 }}
-              onClick={() => setIsCollapsed(false)}
-              className="cursor-pointer p-5 rounded-2xl bg-surface/60 border border-surface-border hover:border-brand-emerald/40 transition-all flex flex-col sm:flex-row items-center justify-between gap-4 group hover:bg-surface"
-            >
-              <div className="flex items-center gap-3.5">
-                <div className="p-2.5 rounded-xl bg-surface-subtle border border-surface-border text-brand-emerald group-hover:border-brand-emerald/40 transition-colors">
-                  <BookOpen className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-ink-primary group-hover:text-brand-emerald-light transition-colors">
-                    {publications.length} Peer-Reviewed Scientific Publications Hidden
-                  </div>
-                  <div className="text-xs font-mono text-ink-tertiary mt-0.5">
-                    IEEE BECITHCON 2025 • Elsevier 2026 • IEEE ICCIT 2025 (SHAP, XAI, Ensembles)
-                  </div>
-                </div>
-              </div>
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-subtle border border-surface-border group-hover:border-brand-emerald/50 text-xs font-mono text-brand-emerald font-medium transition-all">
-                <span>Expand Publications</span>
-                <ChevronDown className="w-3.5 h-3.5" />
-              </span>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </section>
+    </SectionFrame>
   );
 };
 

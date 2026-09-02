@@ -1,86 +1,33 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import {
   Award,
   ShieldCheck,
-  ChevronDown,
   ExternalLink,
 } from "lucide-react";
 import { credentials } from "@/data/portfolioData";
+import { SectionFrame } from "@/components/SectionFrame";
 
 export const CertificationsSection: React.FC = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
-  useEffect(() => {
-    const handleHashCheck = () => {
-      if (window.location.hash === "#certifications") {
-        setIsCollapsed(false);
-      }
-    };
-    handleHashCheck();
-    window.addEventListener("hashchange", handleHashCheck);
-    return () => window.removeEventListener("hashchange", handleHashCheck);
-  }, []);
-
   return (
-    <section id="certifications" className="relative py-24 border-t border-surface-border bg-surface-subtle/20">
-      {/* Subtle ambient light */}
-      <div className="absolute top-1/3 left-0 w-96 h-96 bg-brand-amber/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-amber/10 border border-brand-amber/30 text-xs font-mono font-semibold text-brand-amber mb-4">
-              <Award className="w-3.5 h-3.5" />
-              <span>VERIFIED INDUSTRY CERTIFICATIONS</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink-primary mb-4">
-              Certifications
-            </h2>
-            <p className="text-base text-ink-secondary leading-relaxed">
-              Verified technical certifications in agentic AI development, relational database engineering, agile delivery, and research typography.
-            </p>
-          </div>
-
-          {/* Section Collapse Toggle */}
-          <div className="flex-shrink-0">
-            <button
-              onClick={() => setIsCollapsed(!isCollapsed)}
-              className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-surface border border-surface-border hover:border-brand-amber/50 text-xs font-mono font-medium text-ink-secondary hover:text-ink-primary transition-all duration-200 group shadow-card cursor-pointer"
-              aria-expanded={!isCollapsed}
-              title={isCollapsed ? "Expand certifications section" : "Collapse certifications section"}
-            >
-              <span
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  isCollapsed ? "bg-ink-tertiary" : "bg-brand-amber shadow-[0_0_8px_rgba(245,158,11,0.8)]"
-                }`}
-              />
-              <span>{isCollapsed ? `Expand (${credentials.length} Certifications)` : "Collapse Section"}</span>
-              <ChevronDown
-                className={`w-4 h-4 text-brand-amber transition-transform duration-300 ${
-                  isCollapsed ? "" : "rotate-180"
-                }`}
-              />
-            </button>
-          </div>
-        </div>
-
-        {/* Content with Animation */}
-        <AnimatePresence initial={false} mode="wait">
-          {!isCollapsed ? (
-            <motion.div
-              key="certifications-expanded"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="overflow-hidden"
-            >
-              {/* Certifications Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-1">
+    <SectionFrame
+      id="certifications"
+      badge={{ label: "VERIFIED INDUSTRY CERTIFICATIONS", icon: Award }}
+      title="Certifications"
+      description="Verified technical certifications in agentic AI development, relational database engineering, agile delivery, and research typography."
+      accent="amber"
+      backgroundClassName="bg-surface-subtle/20"
+      ambientGlow={{ color: "amber", position: "left" }}
+      itemCount={{
+        count: credentials.length,
+        label: "Verified Technical Certifications",
+        summary: "Claude Code (Anthropic) • AI Hero Skills • SQL Bootcamp • Agile • LaTeX",
+        expandLabel: "Certifications",
+      }}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-1">
                 {credentials.map((cred, index) => (
                   <motion.div
                     key={cred.id}
@@ -151,38 +98,6 @@ export const CertificationsSection: React.FC = () => {
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="certifications-collapsed"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.25 }}
-              onClick={() => setIsCollapsed(false)}
-              className="cursor-pointer p-5 rounded-2xl bg-surface/60 border border-surface-border hover:border-brand-amber/40 transition-all flex flex-col sm:flex-row items-center justify-between gap-4 group hover:bg-surface"
-            >
-              <div className="flex items-center gap-3.5">
-                <div className="p-2.5 rounded-xl bg-surface-subtle border border-surface-border text-brand-amber group-hover:border-brand-amber/40 transition-colors">
-                  <Award className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-ink-primary group-hover:text-brand-amber transition-colors">
-                    {credentials.length} Verified Technical Certifications Hidden
-                  </div>
-                  <div className="text-xs font-mono text-ink-tertiary mt-0.5">
-                    Claude Code (Anthropic) • AI Hero Skills • SQL Bootcamp • Agile • LaTeX
-                  </div>
-                </div>
-              </div>
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-subtle border border-surface-border group-hover:border-brand-amber/50 text-xs font-mono text-brand-amber font-medium transition-all">
-                <span>Expand Certifications</span>
-                <ChevronDown className="w-3.5 h-3.5" />
-              </span>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </section>
+    </SectionFrame>
   );
 };
