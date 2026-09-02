@@ -5,7 +5,7 @@ import {
   Building2,
   MapPin,
 } from "lucide-react";
-import { education } from "@/data/portfolioData";
+import { education, personalInfo } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
 import { AnimateInView } from "@/components/AnimateInView";
 
@@ -87,7 +87,9 @@ export const EducationSection: React.FC = () => {
                       Typing Speed
                     </span>
                     <div className="text-base font-mono font-bold text-ink-primary flex items-center gap-2">
-                      <span className="text-brand-emerald">102 WPM</span>
+                      <span className="text-brand-emerald">
+                        {personalInfo.stats.find((s) => s.label.includes("Typing Speed"))?.value || "102 WPM"}
+                      </span>
                       <span className="text-xs text-ink-tertiary font-normal">(Gross / Net)</span>
                     </div>
                   </div>
@@ -97,7 +99,15 @@ export const EducationSection: React.FC = () => {
                       Languages
                     </span>
                     <div className="text-sm sm:text-base font-semibold text-ink-primary">
-                      English <span className="text-xs text-ink-tertiary font-mono">(Fluent)</span> &amp; Bengali <span className="text-xs text-ink-tertiary font-mono">(Native)</span>
+                      {personalInfo.languages.map((lang, idx) => (
+                        <React.Fragment key={lang.language}>
+                          {idx > 0 && " & "}
+                          {lang.language}{" "}
+                          <span className="text-xs text-ink-tertiary font-mono">
+                            ({lang.proficiency})
+                          </span>
+                        </React.Fragment>
+                      ))}
                     </div>
                   </div>
 
@@ -107,7 +117,7 @@ export const EducationSection: React.FC = () => {
                     </span>
                     <div className="text-base font-semibold text-ink-primary flex items-center gap-1.5">
                       <MapPin className="w-4 h-4 text-brand-cyan" />
-                      <span>Dhaka, Bangladesh</span>
+                      <span>{personalInfo.location}</span>
                     </div>
                   </div>
                 </div>

@@ -23,8 +23,12 @@ The explicit architectural boundary in the React component tree separating serve
 _Avoid_: HydrationLine, ClientBoundary
 
 **Interaction Adapter**:
-A minimal leaf client component encapsulating browser-specific APIs or state (e.g. clipboard, window scroll, category filtering, viewport animation) without pulling surrounding static content into the client bundle.
+The minimal leaf client component encapsulating browser-specific APIs or state (e.g. clipboard, window scroll, category filtering, viewport animation) without pulling surrounding static content into the client bundle.
 _Avoid_: ClientWrapper, UIHelper, ClientBridge
+
+**EvidenceAction**:
+The canonical interactive action module encapsulating external link security invariants (`rel="noopener noreferrer"`), accessible screen-reader titles, Signal Accent physics, and icon mechanics for verified Evidence Records.
+_Avoid_: ExternalLinkButton, ActionPill, LinkHelper
 
 ### Visual Signals
 

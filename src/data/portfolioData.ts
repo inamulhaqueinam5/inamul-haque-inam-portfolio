@@ -1,6 +1,6 @@
-import { Publication, Project, Experience, Credential, SkillCategory } from "@/types";
+import { Publication, Project, Experience, Credential, SkillCategory, EducationRecord, PersonalInfo } from "@/types";
 
-export const personalInfo = {
+export const personalInfo: PersonalInfo = {
   name: "Inamul Haque Inam",
   headline: "AI-Native Software Engineer & Business Strategist",
   tagline: "Bridging Tech, Data and Agentic Automation",
@@ -9,6 +9,10 @@ export const personalInfo = {
   phone: "+8801515259613",
   bio: "An agile AI-native technologist blending published research with scalable full-stack development and strategic business operations. Focused on driving rapid commercial growth and operational efficiency through agentic workflows and data-driven insights.",
   availability: "Full-Time (Ready for immediate onboarding and long-term career growth)",
+  languages: [
+    { language: "English", proficiency: "Fluent" },
+    { language: "Bengali", proficiency: "Native" },
+  ],
   socials: {
     github: "https://github.com/inamulhaqueinam5",
     linkedin: "https://www.linkedin.com/in/inamulhaqueinam5/",
@@ -297,7 +301,7 @@ export const credentials: Credential[] = [
   },
 ];
 
-export const education = [
+export const education: EducationRecord[] = [
   {
     degree: "BSc in Computer Science & Engineering",
     institution: "Southeast University",

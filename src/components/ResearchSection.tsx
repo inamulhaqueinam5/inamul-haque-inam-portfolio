@@ -1,7 +1,6 @@
 import React from "react";
 import {
   BookOpen,
-  ExternalLink,
   Cpu,
   BarChart2,
   FileCheck2,
@@ -11,6 +10,7 @@ import {
 import { publications } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
 import { AnimateInView } from "@/components/AnimateInView";
+import { EvidenceAction } from "@/components/EvidenceAction";
 
 export const ResearchSection: React.FC = () => {
   return (
@@ -106,31 +106,19 @@ export const ResearchSection: React.FC = () => {
                 {/* Action Links */}
                 <div className="flex flex-wrap items-center gap-2">
                   {pub.doi && (
-                    <a
+                    <EvidenceAction
                       href={pub.doi}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-brand-emerald-light bg-brand-emerald/10 hover:bg-brand-emerald/20 border border-brand-emerald/30 hover:border-brand-emerald/50 transition-all duration-200 group/doi shadow-sm hover:shadow-[0_0_12px_rgba(16,185,129,0.25)]"
-                      title={`View DOI for ${pub.title}`}
-                      aria-label={`Open DOI for ${pub.title} in new tab`}
-                    >
-                      <span>View DOI</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-brand-emerald group-hover/doi:translate-x-0.5 group-hover/doi:-translate-y-0.5 transition-transform duration-200" />
-                    </a>
+                      variant="doi"
+                      contextTitle={pub.title}
+                    />
                   )}
 
                   {pub.sciencedirectUrl && (
-                    <a
+                    <EvidenceAction
                       href={pub.sciencedirectUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-brand-cyan bg-brand-cyan/10 hover:bg-brand-cyan/20 border border-brand-cyan/30 hover:border-brand-cyan/50 transition-all duration-200 group/sd shadow-sm hover:shadow-[0_0_12px_rgba(6,182,212,0.25)]"
-                      title={`View on ScienceDirect for ${pub.title}`}
-                      aria-label={`Open ScienceDirect article for ${pub.title} in new tab`}
-                    >
-                      <span>ScienceDirect</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-brand-cyan group-hover/sd:translate-x-0.5 group-hover/sd:-translate-y-0.5 transition-transform duration-200" />
-                    </a>
+                      variant="sciencedirect"
+                      contextTitle={pub.title}
+                    />
                   )}
 
                   {pub.status === "Under Review" && (

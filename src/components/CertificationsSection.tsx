@@ -2,11 +2,11 @@ import React from "react";
 import {
   Award,
   ShieldCheck,
-  ExternalLink,
 } from "lucide-react";
 import { credentials } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
 import { AnimateInView } from "@/components/AnimateInView";
+import { EvidenceAction } from "@/components/EvidenceAction";
 
 export const CertificationsSection: React.FC = () => {
   return (
@@ -61,17 +61,11 @@ export const CertificationsSection: React.FC = () => {
                         )}
 
                         {cred.verifyUrl && (
-                          <a
+                          <EvidenceAction
                             href={cred.verifyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs font-mono text-brand-emerald hover:text-brand-emerald-light transition-colors group/verify"
-                            title={`Verify ${cred.title} credential`}
-                            aria-label={`Verify ${cred.title} credential in new tab`}
-                          >
-                            <span>Verify</span>
-                            <ExternalLink className="w-3 h-3 group-hover/verify:translate-x-0.5 group-hover/verify:-translate-y-0.5 transition-transform" />
-                          </a>
+                            variant="verify"
+                            contextTitle={cred.title}
+                          />
                         )}
                       </div>
 

@@ -1,20 +1,12 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 import {
-  FileText,
   Mail,
   ArrowRight,
-  Sparkles,
   BookOpen,
-  Briefcase,
   Layers,
-  Award,
-  Terminal,
-  CheckCircle2,
 } from "lucide-react";
 import { personalInfo } from "@/data/portfolioData";
+import { AnimateInView } from "@/components/AnimateInView";
 
 export const Hero: React.FC = () => {
   return (
@@ -26,21 +18,21 @@ export const Hero: React.FC = () => {
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Availability Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+        <AnimateInView
+          yOffset={15}
+          duration={0.5}
           className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-subtle border border-surface-border text-xs font-mono text-ink-secondary mb-8 shadow-sm"
         >
           <span className="w-2 h-2 rounded-full bg-brand-emerald animate-pulse" />
           <span>{personalInfo.availability}</span>
-        </motion.div>
+        </AnimateInView>
 
         {/* Main Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+        <AnimateInView
+          as="h1"
+          delay={0.1}
+          duration={0.6}
+          yOffset={20}
           className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink-primary leading-[1.15] mb-6 max-w-4xl mx-auto"
         >
           AI-Native Software Engineer{" "}
@@ -50,13 +42,14 @@ export const Hero: React.FC = () => {
           <span className="block text-xl sm:text-2xl lg:text-3xl font-normal text-ink-secondary mt-3 font-mono">
             Bridging Tech, Data &amp; Agentic Automation
           </span>
-        </motion.h1>
+        </AnimateInView>
 
         {/* Narrative & Value Proposition */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        <AnimateInView
+          as="p"
+          delay={0.2}
+          duration={0.6}
+          yOffset={20}
           className="text-base sm:text-lg text-ink-secondary max-w-3xl mx-auto leading-relaxed mb-10"
         >
           An agile{" "}
@@ -88,13 +81,13 @@ export const Hero: React.FC = () => {
             data-driven insights
           </strong>
           .
-        </motion.p>
+        </AnimateInView>
 
         {/* Primary Action Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+        <AnimateInView
+          delay={0.3}
+          duration={0.6}
+          yOffset={20}
           className="flex flex-wrap items-center justify-center gap-4 mb-4"
         >
           <a
@@ -121,7 +114,7 @@ export const Hero: React.FC = () => {
             <Mail className="w-4 h-4 text-brand-emerald" />
             <span>Get in Touch</span>
           </a>
-        </motion.div>
+        </AnimateInView>
       </div>
     </section>
   );

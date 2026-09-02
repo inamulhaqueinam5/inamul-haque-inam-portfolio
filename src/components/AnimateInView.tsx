@@ -9,6 +9,7 @@ export interface AnimateInViewProps {
   delay?: number;
   yOffset?: number;
   duration?: number;
+  as?: "div" | "h1" | "p" | "span" | "header" | "section";
 }
 
 export const AnimateInView: React.FC<AnimateInViewProps> = ({
@@ -17,9 +18,12 @@ export const AnimateInView: React.FC<AnimateInViewProps> = ({
   delay = 0,
   yOffset = 20,
   duration = 0.5,
+  as = "div",
 }) => {
+  const MotionComponent = motion[as] as typeof motion.div;
+
   return (
-    <motion.div
+    <MotionComponent
       initial={{ opacity: 0, y: yOffset }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -27,6 +31,6 @@ export const AnimateInView: React.FC<AnimateInViewProps> = ({
       className={className}
     >
       {children}
-    </motion.div>
+    </MotionComponent>
   );
 };

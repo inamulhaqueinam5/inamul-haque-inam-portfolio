@@ -64,3 +64,31 @@ export interface SkillCategory {
   description: string;
   skills: string[];
 }
+
+export interface EducationRecord {
+  degree: string;
+  institution: string;
+  period: string;
+  result: string;
+  highlights: string;
+}
+
+export interface PersonalInfo {
+  name: string;
+  headline: string;
+  tagline: string;
+  location: string;
+  email: string;
+  phone: string;
+  bio: string;
+  availability: string;
+  avatar?: string;
+  languages: { language: string; proficiency: string }[];
+  socials: {
+    github: string;
+    linkedin: string;
+    facebook: string;
+    email: string;
+  };
+  stats: { label: string; value: string }[];
+}

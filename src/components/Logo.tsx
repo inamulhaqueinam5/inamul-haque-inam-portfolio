@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { User } from "lucide-react";
 import { personalInfo } from "@/data/portfolioData";
 
@@ -21,7 +21,7 @@ export const Logo: React.FC<LogoProps> = ({ className = "", size = "md", imageUr
     lg: "w-6 h-6",
   };
 
-  const avatarSrc = imageUrl || (personalInfo as { avatar?: string }).avatar;
+  const avatarSrc = imageUrl || personalInfo.avatar;
 
   return (
     <div

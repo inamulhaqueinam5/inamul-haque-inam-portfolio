@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
                 {personalInfo.name}
               </span>
               <p className="text-[11px] text-ink-muted">
-                AI-Native Software Engineer &bull; Dhaka, Bangladesh
+                AI-Native Software Engineer &bull; {personalInfo.location}
               </p>
             </div>
           </div>

@@ -3,8 +3,12 @@ import { Layers } from "lucide-react";
 import { projects } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
 import { ProjectFilterGallery } from "@/components/ProjectFilterGallery";
+import { ProjectCard } from "@/components/ProjectCard";
 
 export const ProjectsSection: React.FC = () => {
+  const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
+  const projectMetadata = projects.map((p) => ({ id: p.id, category: p.category }));
+
   return (
     <SectionFrame
       id="projects"
@@ -19,7 +23,14 @@ export const ProjectsSection: React.FC = () => {
         expandLabel: "Projects",
       }}
     >
-      <ProjectFilterGallery projects={projects} />
+      <ProjectFilterGallery
+        categories={categories}
+        projectMetadata={projectMetadata}
+      >
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
+      </ProjectFilterGallery>
     </SectionFrame>
   );
 };
