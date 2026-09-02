@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROTOTYPE: Light Mode Design Preview | Inamul Haque Inam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    .theme-transition {
+      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .light-grid-pattern {
+      background-size: 32px 32px;
+      background-image: radial-gradient(circle, rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+    }
+    .dark-grid-pattern {
+      background-size: 32px 32px;
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="theme-transition min-h-screen font-sans antialiased bg-[#F8FAFC] text-[#0F172A] dark:bg-[#08090D] dark:text-[#F8FAFC]">
+
+  <!-- FLOATING PROTOTYPE SWITCHER BANNER -->
+  <aside aria-label="Prototype Controls" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-5 py-3 rounded-full bg-white/95 dark:bg-[#0F1117]/95 backdrop-blur-xl border border-slate-300 dark:border-white/10 shadow-2xl shadow-black/20">
+    <div class="flex items-center gap-2 pr-3 border-r border-slate-200 dark:border-white/10">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span class="text-xs font-mono font-bold tracking-wider uppercase text-slate-700 dark:text-slate-300">Theme Preview</span>
+    </div>
+    <div class="flex items-center gap-1.5">
+      <button id="btnLight" onclick="setTheme('light')" class="px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all bg-emerald-600 text-white shadow-sm flex items-center gap-1.5">
+        <span>☀️ Light Mode</span>
+      </button>
+      <button id="btnDark" onclick="setTheme('dark')" class="px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center gap-1.5">
+        <span>🌙 Dark Mode</span>
+      </button>
+    </div>
+    <div class="hidden sm:flex items-center pl-3 border-l border-slate-200 dark:border-white/10 text-[11px] font-mono text-emerald-700 dark:text-emerald-400">
+      WCAG AAA Calibrated
+    </div>
+  </aside>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 theme-transition bg-white/85 dark:bg-[#08090D]/85 backdrop-blur-md border-b border-slate-200/80 dark:border-white/10 py-3.5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-500 p-[1.5px] shadow-sm">
+          <div class="w-full h-full bg-white dark:bg-[#0B0D14] rounded-[10px] flex items-center justify-center">
+            <span class="font-bold text-sm bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent">IH</span>
+          </div>
+        </div>
+        <div>
+          <span class="font-bold tracking-tight text-sm sm:text-base text-slate-900 dark:text-white">Inamul Haque Inam</span>
+          <span class="block text-[10px] font-mono text-emerald-600 dark:text-emerald-400">AI-Native Engineer &amp; Strategist</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-1">
+        <a href="#research" class="px-3 py-1.5 text-xs font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">Research (5)</a>
+        <a href="#projects" class="px-3 py-1.5 text-xs font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">Projects (4)</a>
+        <a href="#skills" class="px-3 py-1.5 text-xs font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">Skills</a>
+        <a href="#experience" class="px-3 py-1.5 text-xs font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">Experience</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <!-- Interactive Mode Toggle -->
+        <button onclick="toggleTheme()" class="p-2 rounded-lg border border-slate-200 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/5 text-slate-700 dark:text-slate-300 transition-colors flex items-center gap-1.5 text-xs font-mono" title="Toggle theme">
+          <span id="navToggleIcon">☀️</span>
+          <span class="hidden sm:inline" id="navToggleText">Light</span>
+        </button>
+        <a href="mailto:inamulhaqueinam5@gmail.com" class="hidden sm:inline-flex px-3.5 py-2 text-xs font-semibold rounded-lg border border-slate-300 dark:border-white/10 bg-white dark:bg-white/5 text-slate-700 dark:text-slate-200 hover:border-emerald-500 transition-colors">
+          Contact
+        </a>
+        <a href="#contact" class="px-4 py-2 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:text-slate-950 dark:hover:bg-emerald-400 rounded-lg shadow-sm transition-all hover:scale-[1.02]">
+          Hire Me ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-20 pb-20 overflow-hidden theme-transition">
+    <div id="gridOverlay" class="absolute inset-0 light-grid-pattern dark:dark-grid-pattern opacity-60 pointer-events-none"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-1/3 right-1/4 w-[400px] h-[300px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Availability pill -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#141721] border border-slate-200 dark:border-white/10 text-xs font-mono text-slate-600 dark:text-slate-300 mb-8 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Full-Time (Ready for immediate onboarding &amp; long-term growth)</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15] mb-6 max-w-4xl mx-auto">
+        AI-Native Software Engineer <br>
+        <span class="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">
+          &amp; Business Strategist
+        </span>
+        <span class="block text-xl sm:text-2xl lg:text-3xl font-normal text-slate-500 dark:text-slate-400 mt-3 font-mono">
+          Bridging Tech, Data &amp; Agentic Automation
+        </span>
+      </h1>
+
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10">
+        An agile <strong class="text-slate-900 dark:text-white font-semibold">AI-native technologist</strong> blending 
+        <strong class="text-slate-900 dark:text-white font-semibold">published research</strong> with 
+        <strong class="text-slate-900 dark:text-white font-semibold">scalable full-stack development</strong> and 
+        <strong class="text-slate-900 dark:text-white font-semibold">strategic business operations</strong>. Focused on driving 
+        <strong class="text-slate-900 dark:text-white font-semibold">rapid commercial growth</strong> through 
+        <strong class="text-slate-900 dark:text-white font-semibold">agentic workflows</strong>.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-14">
+        <a href="#research" class="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:text-slate-950 dark:hover:bg-emerald-400 rounded-xl shadow-md transition-all hover:scale-[1.02]">
+          <span>Explore Published Research</span>
+          <span>→</span>
+        </a>
+        <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold text-slate-700 dark:text-slate-200 bg-white dark:bg-[#141721] border border-slate-300 dark:border-white/10 hover:border-cyan-500 rounded-xl shadow-sm transition-all hover:scale-[1.02]">
+          <span class="text-cyan-600 dark:text-cyan-400">▣</span>
+          <span>View Projects</span>
+        </a>
+      </div>
+
+      <!-- Quick Metrics Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <div class="p-4 rounded-xl bg-white dark:bg-[#0F1117] border border-slate-200 dark:border-white/10 shadow-sm text-center">
+          <div class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400">5</div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Peer-Reviewed Papers</div>
+        </div>
+        <div class="p-4 rounded-xl bg-white dark:bg-[#0F1117] border border-slate-200 dark:border-white/10 shadow-sm text-center">
+          <div class="text-2xl font-bold font-mono text-cyan-600 dark:text-cyan-400">4</div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Engineering Projects</div>
+        </div>
+        <div class="p-4 rounded-xl bg-white dark:bg-[#0F1117] border border-slate-200 dark:border-white/10 shadow-sm text-center">
+          <div class="text-2xl font-bold font-mono text-emerald-600 dark:text-emerald-400">3.59</div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">BSc CSE CGPA</div>
+        </div>
+        <div class="p-4 rounded-xl bg-white dark:bg-[#0F1117] border border-slate-200 dark:border-white/10 shadow-sm text-center">
+          <div class="text-2xl font-bold font-mono text-amber-600 dark:text-amber-400">102 WPM</div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Typing Speed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH PUBLICATIONS SECTION -->
+  <section id="research" class="py-20 border-t border-slate-200 dark:border-white/10 bg-slate-100/50 dark:bg-[#0C0E14] theme-transition">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold mb-3 bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800/40">
+          <span>PEER-REVIEWED PUBLICATIONS</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
+          International Research &amp; Publications
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 max-w-3xl">
+          Scientific papers focusing on Explainable AI, clinical predictive modeling, automated feature selection, and ensemble learning architectures.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Paper 1 -->
+        <article class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#0F1117] border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono font-semibold bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                IEEE BECITHCON 2025 • 1st Author
+              </span>
+              <span class="text-xs font-mono text-slate-500 dark:text-slate-400">2025</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-4 leading-snug">
+              Explainable Ensemble Learning and Hybrid Feature Selection for Robust Low Birth Weight Prediction
+            </h3>
+            
+            <div class="space-y-3 mb-6">
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-[#141721] border border-slate-100 dark:border-white/5">
+                <span class="text-[11px] font-mono font-semibold uppercase tracking-wider text-cyan-700 dark:text-cyan-400 block mb-1">
+                  Core Challenge / Problem
+                </span>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Early detection of maternal-infant Low Birth Weight (LBW) risk using complex demographic health survey data (1,863 records) with high-dimensional feature noise.
+                </p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-[#141721] border border-slate-100 dark:border-white/5">
+                <span class="text-[11px] font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 block mb-1">
+                  ML Architecture &amp; XAI Methodology
+                </span>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Engineered leak-free preprocessing pipeline and hybrid feature selection (18 → 12 features). Benchmarked 14 ML models and created a Soft-Voting Ensemble (ExtraTrees + CatBoost) with SHAP interpretability.
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-4 gap-2 mb-6 text-center">
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-[#08090D] border border-slate-200 dark:border-white/10">
+                <div class="text-sm font-bold font-mono text-emerald-600 dark:text-emerald-400">94.54%</div>
+                <div class="text-[10px] text-slate-500 dark:text-slate-400">Accuracy</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-[#08090D] border border-slate-200 dark:border-white/10">
+                <div class="text-sm font-bold font-mono text-emerald-600 dark:text-emerald-400">94.05%</div>
+                <div class="text-[10px] text-slate-500 dark:text-slate-400">ROC-AUC</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-[#08090D] border border-slate-200 dark:border-white/10">
+                <div class="text-sm font-bold font-mono text-emerald-600 dark:text-emerald-400">18 → 12</div>
+                <div class="text-[10px] text-slate-500 dark:text-slate-400">Features</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-[#08090D] border border-slate-200 dark:border-white/10">
+                <div class="text-sm font-bold font-mono text-emerald-600 dark:text-emerald-400">14</div>
+                <div class="text-[10px] text-slate-500 dark:text-slate-400">Models</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 dark:border-white/10 flex items-center justify-between">
+            <a href="https://doi.org/10.1109/BECITHCON69222.2025.11504281" target="_blank" class="text-xs font-mono font-semibold text-emerald-700 dark:text-emerald-400 hover:underline flex items-center gap-1">
+              View Verified DOI ↗
+            </a>
+            <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+              ✓ Verified Paper
+            </span>
+          </div>
+        </article>
+
+        <!-- Paper 2 -->
+        <article class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#0F1117] border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono font-semibold bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800">
+                Elsevier Measurement: Digitalization • Co-Author
+              </span>
+              <span class="text-xs font-mono text-slate-500 dark:text-slate-400">2026</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-4 leading-snug">
+              AIDPCP: An Adaptive Intelligent Data Preprocessing and Clustering Pipeline for Obesity Prediction with Explainable AI
+            </h3>
+            
+            <div class="space-y-3 mb-6">
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-[#141721] border border-slate-100 dark:border-white/5">
+                <span class="text-[11px] font-mono font-semibold uppercase tracking-wider text-cyan-700 dark:text-cyan-400 block mb-1">
+                  Core Challenge / Problem
+                </span>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Medical data distribution skew, multi-type tabular features, class imbalance, and data leakage risks in predictive obesity classification.
+                </p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-[#141721] border border-slate-100 dark:border-white/5">
+                <span class="text-[11px] font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 block mb-1">
+                  Architecture &amp; Methodology
+                </span>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Formulated AIDPCP, an automated preprocessing and unsupervised clustering pipeline combined with XAI modules to provide transparent decision boundaries.
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 mb-6 text-center">
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-[#08090D] border border-slate-200 dark:border-white/10">
+                <div class="text-xs font-bold font-mono text-cyan-600 dark:text-cyan-400">Data Pipeline</div>
+                <div class="text-[10px] text-slate-500 dark:text-slate-400">Architecture</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-[#08090D] border border-slate-200 dark:border-white/10">
+                <div class="text-xs font-bold font-mono text-cyan-600 dark:text-cyan-400">Clustering</div>
+                <div class="text-[10px] text-slate-500 dark:text-slate-400">Unsupervised</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-[#08090D] border border-slate-200 dark:border-white/10">
+                <div class="text-xs font-bold font-mono text-emerald-600 dark:text-emerald-400">SHAP / XAI</div>
+                <div class="text-[10px] text-slate-500 dark:text-slate-400">Interpretability</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 dark:border-white/10 flex items-center justify-between">
+            <a href="https://doi.org/10.1016/j.meadig.2026.100049" target="_blank" class="text-xs font-mono font-semibold text-cyan-700 dark:text-cyan-400 hover:underline flex items-center gap-1">
+              View ScienceDirect DOI ↗
+            </a>
+            <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+              ✓ Verified Paper
+            </span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGINEERING PROJECTS SECTION -->
+  <section id="projects" class="py-20 border-t border-slate-200 dark:border-white/10 theme-transition">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold mb-3 bg-cyan-100 text-cyan-800 dark:bg-cyan-950/40 dark:text-cyan-400 border border-cyan-300 dark:border-cyan-800/40">
+          <span>PRODUCTION-GRADE SYSTEMS</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
+          Full-Stack &amp; Software Engineering
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 max-w-3xl">
+          Architectural depth, resilient backend systems, and agile deployment across modern Next.js and TypeScript ecosystems.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Project 1 -->
+        <article class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#0F1117] border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono font-semibold text-emerald-700 dark:text-emerald-400">Full-Stack SaaS Platform</span>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300">Live Demo</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">SkillBridge — Tutoring Platform</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+            Full-stack tutoring platform featuring JWT RBAC, dynamic scheduling algorithms, and atomic booking transactions powered by Prisma ORM and PostgreSQL.
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-100 dark:bg-[#141721] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/5">Next.js 14</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-100 dark:bg-[#141721] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/5">PostgreSQL</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-100 dark:bg-[#141721] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/5">Prisma</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-100 dark:bg-[#141721] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/5">Tailwind CSS</span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <a href="https://skill-bridge-one.vercel.app/" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:opacity-90 transition-opacity">
+              Live Demo ↗
+            </a>
+            <a href="https://github.com/inamulhaqueinam5/skillbridge" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+              Source Code
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#0F1117] border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono font-semibold text-cyan-700 dark:text-cyan-400">Document Engine</span>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300">Live Demo</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">OneFit Resume — Document Engine</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+            Targeted resume tailoring engine based on a Master-to-Derivative data model. Features client-side pixel-perfect A4 pagination and automated DOCX/PDF extraction.
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-100 dark:bg-[#141721] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/5">Next.js 15</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-100 dark:bg-[#141721] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/5">TypeScript</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-100 dark:bg-[#141721] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/5">Mammoth</span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-100 dark:bg-[#141721] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/5">Tailwind CSS</span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <a href="https://one-fit-resume.vercel.app/" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:opacity-90 transition-opacity">
+              Live Demo ↗
+            </a>
+            <a href="https://github.com/inamulhaqueinam5/OneFit-Resume" target="_blank" class="px-4 py-2 rounded-lg text-xs font-semibold border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+              Source Code
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS MATRIX -->
+  <section id="skills" class="py-20 border-t border-slate-200 dark:border-white/10 bg-slate-100/50 dark:bg-[#0C0E14] theme-transition">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold mb-3 bg-amber-100 text-amber-800 dark:bg-amber-950/40 dark:text-amber-400 border border-amber-300 dark:border-amber-800/40">
+          <span>TECHNICAL &amp; STRATEGIC ARSENAL</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
+          Core Capabilities in Light Mode
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 max-w-3xl">
+          High-contrast badge styling ensuring clarity without aggressive visual saturation.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-[#0F1117] border border-slate-200 dark:border-white/10 shadow-sm">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">AI-Native &amp; Software Engineering</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-50 dark:bg-[#08090D] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">Python</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-50 dark:bg-[#08090D] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">TypeScript</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-50 dark:bg-[#08090D] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">Next.js 15</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-50 dark:bg-[#08090D] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">Agentic Workflows</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-50 dark:bg-[#08090D] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">PostgreSQL</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-50 dark:bg-[#08090D] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">RESTful APIs</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white dark:bg-[#0F1117] border border-slate-200 dark:border-white/10 shadow-sm">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Data Science &amp; Business Strategy</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-50 dark:bg-[#08090D] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">Explainable AI (SHAP)</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-50 dark:bg-[#08090D] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">Predictive Modeling</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-50 dark:bg-[#08090D] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">Ensemble Learning</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-50 dark:bg-[#08090D] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">KPI Analytics</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-50 dark:bg-[#08090D] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">Market Research</span>
+            <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-50 dark:bg-[#08090D] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10">Power BI &amp; Excel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 border-t border-slate-200 dark:border-white/10 bg-white dark:bg-[#08090D] text-center text-xs text-slate-500 dark:text-slate-400 theme-transition">
+    <div class="max-w-7xl mx-auto px-4">
+      <p class="font-semibold text-slate-700 dark:text-slate-300 mb-1">
+        Inamul Haque Inam • AI-Native Software Engineer &amp; Business Strategist
+      </p>
+      <p class="text-[11px] text-slate-400 dark:text-slate-500">
+        Light Mode Prototype Preview • Verified Peer-Reviewed Publications &amp; Engineering Systems
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function setTheme(mode) {
+      const html = document.documentElement;
+      const btnLight = document.getElementById('btnLight');
+      const btnDark = document.getElementById('btnDark');
+      const navToggleIcon = document.getElementById('navToggleIcon');
+      const navToggleText = document.getElementById('navToggleText');
+
+      if (mode === 'light') {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        btnLight.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all bg-emerald-600 text-white shadow-sm flex items-center gap-1.5";
+        btnDark.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center gap-1.5";
+        navToggleIcon.textContent = "☀️";
+        if (navToggleText) navToggleText.textContent = "Light";
+      } else {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        btnDark.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all bg-emerald-500 text-slate-950 font-bold shadow-sm flex items-center gap-1.5";
+        btnLight.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center gap-1.5";
+        navToggleIcon.textContent = "🌙";
+        if (navToggleText) navToggleText.textContent = "Dark";
+      }
+    }
+
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        setTheme('light');
+      } else {
+        setTheme('dark');
+      }
+    }
+  </script>
+</body>
+</html>
