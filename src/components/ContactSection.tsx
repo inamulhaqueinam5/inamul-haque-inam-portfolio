@@ -1,33 +1,16 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import {
   Mail,
   Phone,
   MapPin,
-  Check,
-  Copy,
   ArrowUpRight,
   Sparkles,
   FileText,
 } from "lucide-react";
 import { personalInfo } from "@/data/portfolioData";
+import { CopyButton } from "@/components/CopyButton";
 
 export const ContactSection: React.FC = () => {
-  const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(personalInfo.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
-  };
-
-  const handleCopyPhone = () => {
-    navigator.clipboard.writeText(personalInfo.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2000);
-  };
 
   return (
     <section id="contact" className="relative py-24 border-t border-surface-border overflow-hidden">
@@ -71,14 +54,7 @@ export const ContactSection: React.FC = () => {
               >
                 Send Email
               </a>
-              <button
-                onClick={handleCopyEmail}
-                className="p-2 rounded-lg bg-surface-subtle border border-surface-border text-ink-secondary hover:text-ink-primary transition-colors cursor-pointer"
-                title="Copy Email"
-                aria-label="Copy Email to Clipboard"
-              >
-                {copiedEmail ? <Check className="w-4 h-4 text-brand-emerald" /> : <Copy className="w-4 h-4" />}
-              </button>
+              <CopyButton value={personalInfo.email} label="Copy email address" />
             </div>
           </div>
 
@@ -103,14 +79,7 @@ export const ContactSection: React.FC = () => {
               >
                 Call Now
               </a>
-              <button
-                onClick={handleCopyPhone}
-                className="p-2 rounded-lg bg-surface-subtle border border-surface-border text-ink-secondary hover:text-ink-primary transition-colors cursor-pointer"
-                title="Copy Phone"
-                aria-label="Copy Phone Number"
-              >
-                {copiedPhone ? <Check className="w-4 h-4 text-brand-cyan" /> : <Copy className="w-4 h-4" />}
-              </button>
+              <CopyButton value={personalInfo.phone} label="Copy phone number" />
             </div>
           </div>
 

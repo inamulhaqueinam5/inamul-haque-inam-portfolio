@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 import {
   Globe,
   MapPin,
@@ -12,12 +9,13 @@ import {
 } from "lucide-react";
 import { experiences } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
+import { AnimateInView } from "@/components/AnimateInView";
 
 export const ExperienceSection: React.FC = () => {
   return (
     <SectionFrame
       id="experience"
-      badge={{ label: "BUSINESS & OPERATIONS", icon: TrendingUp }}
+      badge={{ label: "BUSINESS & OPERATIONS", icon: <TrendingUp className="w-3.5 h-3.5" /> }}
       title="Operations & Professional Experience"
       description="Bridging technical system execution with international business operations, executive KPI data analytics, and laboratory research workflows."
       accent="emerald"
@@ -31,12 +29,11 @@ export const ExperienceSection: React.FC = () => {
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-2">
           {experiences.map((exp, index) => (
-            <motion.div
+            <AnimateInView
               key={exp.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              delay={index * 0.1}
+              duration={0.5}
+              yOffset={20}
               className="rounded-2xl bg-surface border border-surface-border hover:border-brand-emerald/40 transition-all p-6 sm:p-8 flex flex-col justify-between shadow-card hover:shadow-card-hover group"
             >
               <div>
@@ -102,7 +99,7 @@ export const ExperienceSection: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </AnimateInView>
           ))}
               </div>
     </SectionFrame>

@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 import {
   Award,
   ShieldCheck,
@@ -9,12 +6,13 @@ import {
 } from "lucide-react";
 import { credentials } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
+import { AnimateInView } from "@/components/AnimateInView";
 
 export const CertificationsSection: React.FC = () => {
   return (
     <SectionFrame
       id="certifications"
-      badge={{ label: "VERIFIED INDUSTRY CERTIFICATIONS", icon: Award }}
+      badge={{ label: "VERIFIED INDUSTRY CERTIFICATIONS", icon: <Award className="w-3.5 h-3.5" /> }}
       title="Certifications"
       description="Verified technical certifications in agentic AI development, relational database engineering, agile delivery, and research typography."
       accent="amber"
@@ -29,12 +27,11 @@ export const CertificationsSection: React.FC = () => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-1">
                 {credentials.map((cred, index) => (
-                  <motion.div
+                  <AnimateInView
                     key={cred.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.08 }}
+                    delay={index * 0.08}
+                    duration={0.5}
+                    yOffset={20}
                     className="p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-emerald/40 transition-all duration-300 shadow-card hover:shadow-card-hover flex flex-col justify-between group"
                   >
                     <div>
@@ -95,7 +92,7 @@ export const CertificationsSection: React.FC = () => {
                         </span>
                       ))}
                     </div>
-                  </motion.div>
+                  </AnimateInView>
                 ))}
               </div>
     </SectionFrame>

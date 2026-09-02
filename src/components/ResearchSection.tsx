@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 import {
   BookOpen,
   ExternalLink,
@@ -13,12 +10,13 @@ import {
 } from "lucide-react";
 import { publications } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
+import { AnimateInView } from "@/components/AnimateInView";
 
 export const ResearchSection: React.FC = () => {
   return (
     <SectionFrame
       id="research"
-      badge={{ label: "PEER-REVIEWED PUBLICATIONS", icon: BookOpen }}
+      badge={{ label: "PEER-REVIEWED PUBLICATIONS", icon: <BookOpen className="w-3.5 h-3.5" /> }}
       title="International Research & Publications"
       description="Peer-reviewed scientific publications focusing on Explainable AI, clinical predictive modeling, automated feature selection and dual-stream deep learning architectures."
       accent="emerald"
@@ -33,12 +31,11 @@ export const ResearchSection: React.FC = () => {
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-2">
           {publications.map((pub, index) => (
-            <motion.div
+            <AnimateInView
               key={pub.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              delay={index * 0.1}
+              duration={0.5}
+              yOffset={20}
               className="relative rounded-2xl bg-surface border border-surface-border hover:border-surface-border-hover transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between shadow-card hover:shadow-card-hover group"
             >
               {/* Header: Venue & Status */}
@@ -162,7 +159,7 @@ export const ResearchSection: React.FC = () => {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </AnimateInView>
           ))}
         </div>
     </SectionFrame>

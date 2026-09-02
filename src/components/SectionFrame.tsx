@@ -8,7 +8,7 @@ export type SectionAccent = "emerald" | "cyan" | "amber" | "purple";
 
 export interface SectionBadge {
   label: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon?: React.ReactNode | React.ComponentType<{ className?: string }>;
 }
 
 export interface SectionItemCount {
@@ -112,7 +112,18 @@ export const SectionFrame: React.FC<SectionFrameProps> = ({
   }, [id]);
 
   const style = ACCENT_STYLES[accent] || ACCENT_STYLES.cyan;
-  const BadgeIcon = badge.icon;
+
+  const renderBadgeIcon = (iconClass = "w-3.5 h-3.5") => {
+    if (!badge.icon) return null;
+    if (React.isValidElement(badge.icon)) {
+      return badge.icon;
+    }
+    if (typeof badge.icon === "function") {
+      const Component = badge.icon as React.ComponentType<{ className?: string }>;
+      return <Component className={iconClass} />;
+    }
+    return badge.icon;
+  };
 
   const expandLabel = itemCount
     ? `Expand (${itemCount.count} ${itemCount.expandLabel || itemCount.label})`
@@ -142,7 +153,7 @@ export const SectionFrame: React.FC<SectionFrameProps> = ({
             <div
               className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-mono font-semibold mb-4 ${style.badge}`}
             >
-              <BadgeIcon className="w-3.5 h-3.5" />
+              {renderBadgeIcon()}
               <span>{badge.label}</span>
             </div>
 
@@ -217,7 +228,7 @@ export const SectionFrame: React.FC<SectionFrameProps> = ({
                 <div
                   className={`p-2.5 rounded-xl bg-surface-subtle border border-surface-border ${style.textColor} ${style.hoverBorder} transition-colors`}
                 >
-                  <BadgeIcon className="w-4 h-4" />
+                  {renderBadgeIcon("w-4 h-4")}
                 </div>
                 <div>
                   <div

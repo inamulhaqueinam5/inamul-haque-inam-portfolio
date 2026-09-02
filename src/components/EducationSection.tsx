@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 import {
   GraduationCap,
   Calendar,
@@ -10,12 +7,13 @@ import {
 } from "lucide-react";
 import { education } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
+import { AnimateInView } from "@/components/AnimateInView";
 
 export const EducationSection: React.FC = () => {
   return (
     <SectionFrame
       id="education"
-      badge={{ label: "ACADEMIC FOUNDATION", icon: GraduationCap }}
+      badge={{ label: "ACADEMIC FOUNDATION", icon: <GraduationCap className="w-3.5 h-3.5" /> }}
       title={
         <span className="flex items-center gap-3">
           <GraduationCap className="w-7 h-7 sm:w-8 sm:h-8 text-brand-cyan shrink-0" />
@@ -37,12 +35,11 @@ export const EducationSection: React.FC = () => {
         {/* Education Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 pt-1">
           {education.map((edu, index) => (
-            <motion.div
+            <AnimateInView
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              delay={index * 0.1}
+              duration={0.5}
+              yOffset={20}
               className="p-6 sm:p-7 rounded-2xl bg-surface border border-surface-border hover:border-brand-cyan/40 transition-all duration-300 shadow-card hover:shadow-card-hover flex flex-col justify-between group"
             >
               <div>
@@ -73,16 +70,15 @@ export const EducationSection: React.FC = () => {
                         {edu.highlights}
                       </p>
                     </div>
-                  </motion.div>
+                  </AnimateInView>
                 ))}
               </div>
 
               {/* Quick Highlights Strip */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.3 }}
+              <AnimateInView
+                delay={0.3}
+                yOffset={15}
+                duration={0.5}
                 className="p-6 rounded-2xl bg-[#08090D] border border-surface-border"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-surface-border">
@@ -115,7 +111,7 @@ export const EducationSection: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </AnimateInView>
       </div>
     </SectionFrame>
   );

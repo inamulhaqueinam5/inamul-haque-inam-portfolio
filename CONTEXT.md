@@ -18,6 +18,14 @@ _Avoid_: Tab, PageBlock, SectionComponent
 A verified factual artifact (peer-reviewed publication, production platform, professional role, degree, or verified certificate) demonstrating technical or commercial impact.
 _Avoid_: PortfolioItem, ResumeEntry
 
+**Client Seam**:
+The explicit architectural boundary in the React component tree separating server-rendered components from client-hydrated components.
+_Avoid_: HydrationLine, ClientBoundary
+
+**Interaction Adapter**:
+A minimal leaf client component encapsulating browser-specific APIs or state (e.g. clipboard, window scroll, category filtering, viewport animation) without pulling surrounding static content into the client bundle.
+_Avoid_: ClientWrapper, UIHelper, ClientBridge
+
 ### Visual Signals
 
 **Stage Badge**:

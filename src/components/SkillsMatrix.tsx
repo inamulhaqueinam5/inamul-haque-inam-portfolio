@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 import {
   Code2,
   BrainCircuit,
@@ -10,6 +7,7 @@ import {
 } from "lucide-react";
 import { skillCategories } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
+import { AnimateInView } from "@/components/AnimateInView";
 
 export const SkillsMatrix: React.FC = () => {
   const getIcon = (index: number) => {
@@ -30,7 +28,7 @@ export const SkillsMatrix: React.FC = () => {
   return (
     <SectionFrame
       id="skills"
-      badge={{ label: "TECHNICAL & COMMERCIAL ARSENAL", icon: Code2 }}
+      badge={{ label: "TECHNICAL & COMMERCIAL ARSENAL", icon: <Code2 className="w-3.5 h-3.5" /> }}
       title="Core Technical & Strategic Capabilities"
       description="Engineered to bridge scalable software systems, agentic AI automation and high-growth business operations."
       accent="cyan"
@@ -44,12 +42,11 @@ export const SkillsMatrix: React.FC = () => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 pt-1">
                 {skillCategories.map((category, index) => (
-                  <motion.div
+                  <AnimateInView
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    delay={index * 0.1}
+                    duration={0.5}
+                    yOffset={20}
                     className="p-6 sm:p-8 rounded-2xl bg-surface border border-surface-border hover:border-surface-border-hover transition-all shadow-card group"
                   >
                     <div className="flex items-center gap-3 mb-3">
@@ -76,7 +73,7 @@ export const SkillsMatrix: React.FC = () => {
                         </span>
                       ))}
                     </div>
-                  </motion.div>
+                  </AnimateInView>
                 ))}
               </div>
     </SectionFrame>
