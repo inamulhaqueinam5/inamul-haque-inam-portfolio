@@ -12,7 +12,7 @@
 
 **AI-Native Software Engineer & Business Strategist | Bridging Tech, Data and Agentic Automation**
 
-*A centralized, high-craft, storytelling digital portfolio articulating academic research in Explainable AI, production full-stack systems engineering, and KPI-driven international business operations.*
+*A centralized, high-craft, storytelling digital portfolio articulating academic research , production full-stack systems engineering, and KPI-driven international business operations.*
 
 [Explore Live Portfolio](https://inamulhaqueinam.dev) • [View Research](#academic-research-showcase) • [Featured Projects](#flagship-engineering-projects) • [Documentation](docs/)
 
@@ -22,12 +22,9 @@
 
 ## 🌟 Executive Summary & Positioning
 
-This portfolio serves as the primary technical and executive showcase for **Inamul Haque Inam** (BSc in Computer Science & Engineering, Southeast University, CGPA: 3.59). It connects high-rigor peer-reviewed Machine Learning research with production-grade full-stack web platforms and international corporate operations.
+This portfolio serves as the primary technical and executive showcase for **Inamul Haque Inam** (BSc in Computer Science & Engineering, Southeast University ). 
 
-### Target Recruiter Personas
-- **Technical Engineering:** Software Engineer, Full-Stack Web Developer, Machine Learning Engineer, Data Scientist, Data Analyst.
-- **Corporate & Strategy:** Business Development Executive (BDE), Management Trainee Officer (MTO), Banking Officer.
-- **Research & Innovation:** Academic Lab Researcher, Explainable AI (XAI) Specialist.
+
 
 ---
 
@@ -73,32 +70,7 @@ The application is built upon **Next.js 15 App Router** and adheres to strict do
 
 ---
 
-## 🚀 Key Showcase Sections
 
-### 1. Academic Research Foundation (Primary Spotlight)
-Showcases peer-reviewed scientific contributions in healthcare analytics and Explainable AI (XAI):
-- **IEEE BECITHCON 2025 (1st Author):** *"Explainable Ensemble Learning and Hybrid Feature Selection for Robust Low Birth Weight Prediction"* (ExtraTrees + CatBoost, 94.54% Accuracy, 94.05% ROC-AUC, SHAP clinical interpretability). [DOI: 10.1109/BECITHCON69222.2025.11504281](https://doi.org/10.1109/BECITHCON69222.2025.11504281)
-- **Elsevier Measurement: Digitalization (2026, Co-Author):** *"AIDPCP: An Adaptive Intelligent Data Preprocessing and Clustering Pipeline for Obesity Prediction with Explainable AI"*. [DOI: 10.1016/j.meadig.2026.100049](https://doi.org/10.1016/j.meadig.2026.100049)
-- **IEEE ICCIT 2025:** Mortality Risk Classification in Hepatitis B Patients.
-- **IEEE ICCIT 2025:** Explainable AI-Driven Ensemble Learning for PCOS Diagnosis (AIM-PDCF & QuantumGraphRFE).
-- **The Journal of Engineering (Under Review):** *DPAFF-Net* for Clinical-Grade Tuberculosis Screening.
-
-### 2. Flagship Engineering Projects
-Interactive filterable gallery featuring problem-solution-impact narratives:
-- **SkillBridge:** Full-stack tutoring & mentoring platform with Prisma ORM, PostgreSQL, JWT/RBAC security, and dynamic booking algorithms.
-- **OneFit Resume:** Resume tailoring engine featuring client-side A4 document renderer, master-to-derivative state architecture, and mammoth/cheerio parsing.
-- **Executive Banking Portfolio:** Enterprise-grade corporate web application with decoupled architecture and dual-world theme.
-- **Social Media Posting App:** Scalable media sharing platform built on React 19, Node/Express, MongoDB, Multer, and ImageKit CDN.
-
-### 3. Professional Experience & International Operations
-- **Rectangle International AB (Sweden, Remote):** Technical Operations Associate (Intern) — Multi-channel operational workflows, platform QA, and Python-based KPI reporting.
-- **AMIR Lab (Dhaka):** Research Intern — Deep learning architectures, statistical feature engineering, and academic manuscript preparation.
-
-### 4. Multidisciplinary Skills Matrix & Credentials
-- **5 Skill Clusters:** AI & Machine Learning, Full-Stack Systems, Data Engineering & Databases, Business Operations & Strategy, Tools & Agentic Workflows.
-- **Verified Credentials:** Anthropic Claude Code in Action, AI Hero Workflows, Complete SQL Bootcamp, Agile Project Management, LaTeX Unlocked.
-
----
 
 ## 📂 Project Structure
 
@@ -204,16 +176,6 @@ This codebase is specifically architected for seamless human-agent pair programm
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md): In-depth review of component lifecycles and layout composition.
 - [`docs/ROADMAP_V2.md`](docs/ROADMAP_V2.md): Planned initiatives and specifications for Version 2.0.
 
----
-
-## 🗺️ Version 2.0 Roadmap
-
-See [`docs/ROADMAP_V2.md`](docs/ROADMAP_V2.md) for full architectural specs. Key upcoming features:
-- [ ] **Interactive AI Recruiter Agent:** In-browser conversational LLM trained on Inamul's research papers and engineering work.
-- [ ] **Interactive ML Model Playground:** Client-side SHAP visualizer and real-time model inference widget.
-- [ ] **MDX Engineering Blog:** Dedicated technical writing articles covering Explainable AI and full-stack system patterns.
-- [ ] **Live Contact Engine:** Direct email dispatch integration via Resend / Next.js Server Actions.
-- [ ] **Dual-World Light/Dark Toggle:** Seamless theme toggle respecting system preference with persistent local state.
 
 ---
 
