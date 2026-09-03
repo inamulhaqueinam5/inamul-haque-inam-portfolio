@@ -5,8 +5,7 @@ import {
 } from "lucide-react";
 import { credentials } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
-import { AnimateInView } from "@/components/AnimateInView";
-import { CardSpotlight } from "@/components/CardSpotlight";
+import { ShowcaseCard } from "@/components/ShowcaseCard";
 import { EvidenceAction } from "@/components/EvidenceAction";
 
 export const CertificationsSection: React.FC = () => {
@@ -28,17 +27,12 @@ export const CertificationsSection: React.FC = () => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-1">
                 {credentials.map((cred, index) => (
-                  <AnimateInView
+                  <ShowcaseCard
                     key={cred.id}
-                    delay={index * 0.08}
-                    duration={0.5}
-                    yOffset={20}
-                    className="h-full"
+                    index={index}
+                    accent="amber"
+                    padding="compact"
                   >
-                    <CardSpotlight
-                      accent="amber"
-                      className="h-full p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-emerald/40 transition-all duration-300 shadow-card hover:shadow-card-hover flex flex-col justify-between group"
-                    >
                     <div>
                       {/* Header: Issuer Badge & Date */}
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
@@ -91,8 +85,7 @@ export const CertificationsSection: React.FC = () => {
                         </span>
                       ))}
                     </div>
-                    </CardSpotlight>
-                  </AnimateInView>
+                  </ShowcaseCard>
                 ))}
               </div>
     </SectionFrame>

@@ -6,9 +6,6 @@ import { ProjectFilterGallery } from "@/components/ProjectFilterGallery";
 import { ProjectCard } from "@/components/ProjectCard";
 
 export const ProjectsSection: React.FC = () => {
-  const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
-  const projectMetadata = projects.map((p) => ({ id: p.id, category: p.category }));
-
   return (
     <SectionFrame
       id="projects"
@@ -24,13 +21,12 @@ export const ProjectsSection: React.FC = () => {
       }}
     >
       <ProjectFilterGallery
-        categories={categories}
-        projectMetadata={projectMetadata}
-      >
-        {projects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} />
-        ))}
-      </ProjectFilterGallery>
+        items={projects.map((project, index) => ({
+          id: project.id,
+          category: project.category,
+          content: <ProjectCard project={project} index={index} />,
+        }))}
+      />
     </SectionFrame>
   );
 };

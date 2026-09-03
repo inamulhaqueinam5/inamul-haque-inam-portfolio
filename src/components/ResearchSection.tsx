@@ -9,8 +9,7 @@ import {
 } from "lucide-react";
 import { publications } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
-import { AnimateInView } from "@/components/AnimateInView";
-import { CardSpotlight } from "@/components/CardSpotlight";
+import { ShowcaseCard } from "@/components/ShowcaseCard";
 import { EvidenceAction } from "@/components/EvidenceAction";
 
 export const ResearchSection: React.FC = () => {
@@ -32,17 +31,11 @@ export const ResearchSection: React.FC = () => {
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-2">
           {publications.map((pub, index) => (
-            <AnimateInView
+            <ShowcaseCard
               key={pub.id}
-              delay={index * 0.1}
-              duration={0.5}
-              yOffset={20}
-              className="h-full"
+              index={index}
+              accent="emerald"
             >
-              <CardSpotlight
-                accent="emerald"
-                className="h-full rounded-2xl bg-surface border border-surface-border hover:border-surface-border-hover transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between shadow-card hover:shadow-card-hover group"
-              >
               {/* Header: Venue & Status */}
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
@@ -152,8 +145,7 @@ export const ResearchSection: React.FC = () => {
                   </span>
                 ))}
               </div>
-              </CardSpotlight>
-            </AnimateInView>
+            </ShowcaseCard>
           ))}
         </div>
     </SectionFrame>

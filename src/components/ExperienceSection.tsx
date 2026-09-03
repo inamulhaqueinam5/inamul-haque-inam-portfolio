@@ -9,8 +9,7 @@ import {
 } from "lucide-react";
 import { experiences } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
-import { AnimateInView } from "@/components/AnimateInView";
-import { CardSpotlight } from "@/components/CardSpotlight";
+import { ShowcaseCard } from "@/components/ShowcaseCard";
 
 export const ExperienceSection: React.FC = () => {
   return (
@@ -30,17 +29,11 @@ export const ExperienceSection: React.FC = () => {
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-2">
           {experiences.map((exp, index) => (
-            <AnimateInView
+            <ShowcaseCard
               key={exp.id}
-              delay={index * 0.1}
-              duration={0.5}
-              yOffset={20}
-              className="h-full"
+              index={index}
+              accent="emerald"
             >
-              <CardSpotlight
-                accent="emerald"
-                className="h-full rounded-2xl bg-surface border border-surface-border hover:border-brand-emerald/40 transition-all p-6 sm:p-8 flex flex-col justify-between shadow-card hover:shadow-card-hover group"
-              >
               <div>
                 {/* Header: Company, Location, Period */}
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
@@ -104,12 +97,9 @@ export const ExperienceSection: React.FC = () => {
                   ))}
                 </div>
               </div>
-              </CardSpotlight>
-            </AnimateInView>
+            </ShowcaseCard>
           ))}
-              </div>
+      </div>
     </SectionFrame>
   );
 };
-
-

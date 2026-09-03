@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { personalInfo } from "@/data/portfolioData";
 import { CopyButton } from "@/components/CopyButton";
-import { CardSpotlight } from "@/components/CardSpotlight";
+import { ShowcaseCard } from "@/components/ShowcaseCard";
 
 export const ContactSection: React.FC = () => {
 
@@ -35,9 +35,10 @@ export const ContactSection: React.FC = () => {
         {/* Contact Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-12">
           {/* Email Card */}
-          <CardSpotlight
+          <ShowcaseCard
+            index={0}
             accent="emerald"
-            className="p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-emerald/40 transition-all flex flex-col justify-between shadow-card group"
+            padding="compact"
           >
             <div>
               <div className="w-10 h-10 rounded-xl bg-brand-emerald/15 text-brand-emerald flex items-center justify-center mb-4">
@@ -60,12 +61,13 @@ export const ContactSection: React.FC = () => {
               </a>
               <CopyButton value={personalInfo.email} label="Copy email address" />
             </div>
-          </CardSpotlight>
+          </ShowcaseCard>
 
           {/* Phone Card */}
-          <CardSpotlight
+          <ShowcaseCard
+            index={1}
             accent="cyan"
-            className="p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-cyan/40 transition-all flex flex-col justify-between shadow-card group"
+            padding="compact"
           >
             <div>
               <div className="w-10 h-10 rounded-xl bg-brand-cyan/15 text-brand-cyan flex items-center justify-center mb-4">
@@ -88,12 +90,13 @@ export const ContactSection: React.FC = () => {
               </a>
               <CopyButton value={personalInfo.phone} label="Copy phone number" />
             </div>
-          </CardSpotlight>
+          </ShowcaseCard>
 
           {/* Location & Status Card */}
-          <CardSpotlight
+          <ShowcaseCard
+            index={2}
             accent="amber"
-            className="p-6 rounded-2xl bg-surface border border-surface-border hover:border-brand-amber/40 transition-all flex flex-col justify-between shadow-card group"
+            padding="compact"
           >
             <div>
               <div className="w-10 h-10 rounded-xl bg-brand-amber/15 text-brand-amber flex items-center justify-center mb-4">
@@ -114,7 +117,7 @@ export const ContactSection: React.FC = () => {
               <span className="w-2 h-2 rounded-full bg-brand-emerald animate-ping" />
               <span>Full-Time Ready</span>
             </div>
-          </CardSpotlight>
+          </ShowcaseCard>
         </div>
 
         {/* Social Presence Links */}

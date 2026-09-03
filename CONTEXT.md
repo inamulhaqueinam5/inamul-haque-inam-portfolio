@@ -18,6 +18,10 @@ _Avoid_: Tab, PageBlock, SectionComponent
 A verified factual artifact (peer-reviewed publication, production platform, professional role, degree, or verified certificate) demonstrating technical or commercial impact.
 _Avoid_: PortfolioItem, ResumeEntry
 
+**ShowcaseCard**:
+The canonical presentation card module encapsulating viewport entrance motion, specular spotlight hover physics, signal accent borders, and surface elevation tokens for Evidence Records.
+_Avoid_: SpotlightCard, CardWrapper, AnimatedCard
+
 **Client Seam**:
 The explicit architectural boundary in the React component tree separating server-rendered components from client-hydrated components.
 _Avoid_: HydrationLine, ClientBoundary
@@ -25,6 +29,10 @@ _Avoid_: HydrationLine, ClientBoundary
 **Interaction Adapter**:
 The minimal leaf client component encapsulating browser-specific APIs or state (e.g. clipboard, window scroll, category filtering, viewport animation) without pulling surrounding static content into the client bundle.
 _Avoid_: ClientWrapper, UIHelper, ClientBridge
+
+**Slotted Record Seam**:
+The architectural pattern wherein leaf interaction adapters receive pre-rendered React Server Component nodes directly paired with their filtering or grouping keys in a single typed collection (`{ id, category, content }`), eliminating detached metadata arrays and fragile index alignment.
+_Avoid_: ParallelArrays, MetadataIndexMatch, DetachedFilterProps
 
 **EvidenceAction**:
 The canonical interactive action module encapsulating external link security invariants (`rel="noopener noreferrer"`), accessible screen-reader titles, Signal Accent physics, and icon mechanics for verified Evidence Records.

@@ -7,8 +7,7 @@ import {
 } from "lucide-react";
 import { skillCategories } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
-import { AnimateInView } from "@/components/AnimateInView";
-import { CardSpotlight } from "@/components/CardSpotlight";
+import { ShowcaseCard } from "@/components/ShowcaseCard";
 
 export const SkillsMatrix: React.FC = () => {
   const getIcon = (index: number) => {
@@ -58,17 +57,11 @@ export const SkillsMatrix: React.FC = () => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 pt-1">
         {skillCategories.map((category, index) => (
-          <AnimateInView
+          <ShowcaseCard
             key={index}
-            delay={index * 0.1}
-            duration={0.5}
-            yOffset={20}
-            className="h-full"
+            index={index}
+            accent={getAccent(index)}
           >
-            <CardSpotlight
-              accent={getAccent(index)}
-              className="h-full p-6 sm:p-8 rounded-2xl bg-surface border border-surface-border hover:border-surface-border-hover transition-all shadow-card group"
-            >
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2.5 rounded-xl bg-surface-subtle border border-surface-border group-hover:border-brand-emerald/40 transition-colors">
                   {getIcon(index)}
@@ -93,8 +86,7 @@ export const SkillsMatrix: React.FC = () => {
                   </span>
                 ))}
               </div>
-            </CardSpotlight>
-          </AnimateInView>
+          </ShowcaseCard>
         ))}
       </div>
     </SectionFrame>

@@ -8,7 +8,7 @@ import {
 import { education, personalInfo } from "@/data/portfolioData";
 import { SectionFrame } from "@/components/SectionFrame";
 import { AnimateInView } from "@/components/AnimateInView";
-import { CardSpotlight } from "@/components/CardSpotlight";
+import { ShowcaseCard } from "@/components/ShowcaseCard";
 
 export const EducationSection: React.FC = () => {
   return (
@@ -36,17 +36,11 @@ export const EducationSection: React.FC = () => {
         {/* Education Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 pt-1">
           {education.map((edu, index) => (
-            <AnimateInView
+            <ShowcaseCard
               key={index}
-              delay={index * 0.1}
-              duration={0.5}
-              yOffset={20}
-              className="h-full"
+              index={index}
+              accent="cyan"
             >
-              <CardSpotlight
-                accent="cyan"
-                className="h-full p-6 sm:p-7 rounded-2xl bg-surface border border-surface-border hover:border-brand-cyan/40 transition-all duration-300 shadow-card hover:shadow-card-hover flex flex-col justify-between group"
-              >
                 <div>
                   {/* Header: Period & Result */}
                   <div className="flex items-center justify-between gap-2 text-xs font-mono text-ink-tertiary mb-3">
@@ -75,8 +69,7 @@ export const EducationSection: React.FC = () => {
                     {edu.highlights}
                   </p>
                 </div>
-              </CardSpotlight>
-            </AnimateInView>
+            </ShowcaseCard>
           ))}
         </div>
 
