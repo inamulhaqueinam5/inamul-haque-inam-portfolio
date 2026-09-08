@@ -65,6 +65,9 @@ An AI-native graduate who unites peer-reviewed Machine Learning research and ful
   - *AMIR Lab (Dhaka):* Research Intern - Deep learning modeling, quantitative research, statistical feature optimization.
 - **Verified Credentials:**
   - *Anthropic:* Claude Code in Action (Credential ID: b947gbhsm6sw)
+  - *HubSpot Academy:* HubSpot Sales Hub Software Certified (Credential ID: e7373df822814ce9abfc66dac0d6a971)
+  - *HubSpot Academy:* Inbound Sales Certified (Credential ID: 8aa345fea803486cbac62ad882142a15)
+  - *LinkedIn Sales Solutions:* Sales Navigator: Essentials Completion Certificate (Credential ID: 62b23fq7qyej)
   - *AI Hero:* AI Hero Skills Workflow Course (Matt Pocock)
   - *Udemy:* The Complete SQL Bootcamp (Jose Portilla)
   - *Udemy:* Agile Crash Course (YESI EDUCATION)

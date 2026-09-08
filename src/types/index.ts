@@ -53,6 +53,8 @@ export interface Credential {
   title: string;
   issuer: string;
   date: string;
+  validUntil?: string;
+  category?: "AI & Engineering" | "Business & Sales" | "Methodologies & Tools";
   credentialId?: string;
   verifyUrl?: string;
   competencies: string[];
