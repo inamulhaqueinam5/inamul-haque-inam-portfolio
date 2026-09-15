@@ -9,6 +9,7 @@ export const personalInfo: PersonalInfo = {
   phone: "+8801515259613",
   bio: "An agile AI-native technologist blending published research with scalable full-stack development and strategic business operations. Focused on driving rapid commercial growth and operational efficiency through agentic workflows and data-driven insights.",
   availability: "Full-Time (Ready for immediate onboarding and long-term career growth)",
+  avatar: "/images/inamul-haque-inam.png",
   languages: [
     { language: "English", proficiency: "Fluent" },
     { language: "Bengali", proficiency: "Native" },
@@ -57,7 +58,7 @@ export const publications: Publication[] = [
     doi: "https://doi.org/10.1016/j.meadig.2026.100049",
     sciencedirectUrl: "https://www.sciencedirect.com/science/article/pii/S3050644126000289",
     authors: ["Md. Zubayer Ahmad Shibly", "Inamul Haque Inam", "Khandaker Mohammad Mohi Uddin"],
-    problem: "Severe medical data distribution skew, multi-type tabular features, class imbalance, and data leakage risks in predictive obesity classification.",
+    problem: "Severe medical data distribution skew, multi-type tabular features, class imbalance and data leakage risks in predictive obesity classification.",
     methodology: "Formulated AIDPCP, an adaptive and distribution-aware automated preprocessing and unsupervised clustering framework combined with Explainable AI modules to deliver transparent decision boundaries.",
     metrics: [
       { label: "Focus", value: "Data Engineering Pipeline" },
@@ -129,12 +130,12 @@ export const projects: Project[] = [
     subtitle: "Full-Stack Tutoring Platform & Intelligent Session Engine",
     category: "Full-Stack Web",
     featured: true,
-    challenge: "Managing overlapping session bookings, race conditions in scheduling, role-tailored authentication across 3 user types, and faceted database queries without performance degradation.",
-    solution: "Engineered a scalable full-stack tutoring platform featuring role-based access control (RBAC) via JWT, an intelligent session booking engine with PostgreSQL & Prisma ORM that executes server-side overlapping time-window algorithms, and dedicated telemetry dashboards for Admins, Tutors, and Students.",
+    challenge: "Managing overlapping session bookings, race conditions in scheduling, role-tailored authentication across 3 user types and faceted database queries without performance degradation.",
+    solution: "Engineered a scalable full-stack tutoring platform featuring role-based access control (RBAC) via JWT, an intelligent session booking engine with PostgreSQL & Prisma ORM that executes server-side overlapping time-window algorithms and dedicated telemetry dashboards for Admins, Tutors and Students.",
     architecture: [
       "Role-Based Access Control (RBAC) securing protected API endpoints and Next.js client routes.",
       "Server-side overlapping time-window algorithm to eliminate double-booking race conditions.",
-      "Admin telemetry panel with real-time revenue metrics, moderation, and slot configuration.",
+      "Admin telemetry panel with real-time revenue metrics, moderation and slot configuration.",
       "Faceted multi-parameter search (subject, hourly rate, rating) with server-side pagination.",
       "100% full-stack type safety with TypeScript and Zod schema validations.",
     ],
@@ -149,7 +150,7 @@ export const projects: Project[] = [
     subtitle: "Full-Stack Resume Tailoring & Client-Side A4 Document Engine",
     category: "AI & Document Engine",
     featured: true,
-    challenge: "Multi-version resume drift, server-side PDF cold-start latency & rendering costs, and parsing hallucinations from unstructured resume documents.",
+    challenge: "Multi-version resume drift, server-side PDF cold-start latency & rendering costs and parsing hallucinations from unstructured resume documents.",
     solution: "Solved multi-version resume management via a Master-to-Derivative data architecture. Engineered a zero-cost client-side A4 rendering engine with a stepped layout-compression algorithm to guarantee single-page compliance, coupled with a deterministic rule-based DOCX ingestion pipeline using mammoth and cheerio.",
     architecture: [
       "Master-to-Derivative data model allowing multiple customized resumes from one single source of truth.",
@@ -168,13 +169,13 @@ export const projects: Project[] = [
     subtitle: "Bespoke Corporate Web Application with Domain-Driven Architecture",
     category: "Enterprise Web",
     featured: true,
-    challenge: "Translating extensive senior corporate career milestones, 24+ regulatory banking competencies, and executive achievements into an authoritative digital presence with zero-FOUC theme switching and strict type safety.",
+    challenge: "Translating extensive senior corporate career milestones, 24+ regulatory banking competencies and executive achievements into an authoritative digital presence with zero-FOUC theme switching and strict type safety.",
     solution: "Architected a production-grade web application in Next.js 14 utilizing Domain-Driven Decoupled Architecture (DDD). Designed a Dual-World Theme System (Obsidian Void Dark / Sovereign Emerald Light) using Tailwind CSS tokens and Framer Motion, along with an interactive 3D credentials carousel and branch timeline.",
     architecture: [
       "Domain-Driven Decoupled Architecture isolating domain repositories from React presentation layers.",
       "Dual-World Theme System with zero-FOUC and spring-physics micro-interactions.",
       "Interactive 24+ skill competency matrix (AML/CFT, Foreign Trade) and branch operational timeline.",
-      "Production CI/CD with GitHub Actions, Netlify, zero-DOM unit tests, and Playwright E2E verification.",
+      "Production CI/CD with GitHub Actions, Netlify, zero-DOM unit tests and Playwright E2E verification.",
     ],
     impact: "Engineered a zero-any policy enterprise application delivering sub-second load times and flawless regulatory presentation.",
     techStack: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "Playwright", "GitHub Actions", "Netlify"],
@@ -187,11 +188,11 @@ export const projects: Project[] = [
     subtitle: "Full-Stack Media Sharing & Async Upload Platform",
     category: "Social & Media",
     featured: true,
-    challenge: "Preventing server disk saturation during high-concurrency binary media uploads, minimizing posting latency, and managing state across asynchronous pipelines.",
-    solution: "Architected an asynchronous media upload pipeline integrating Multer and ImageKit CDN to offload binary storage from application servers. Built a scalable RESTful backend in Node.js/Express with MongoDB, and an interactive SPA in React 19 and Vite with real-time client-side image previews.",
+    challenge: "Preventing server disk saturation during high-concurrency binary media uploads, minimizing posting latency and managing state across asynchronous pipelines.",
+    solution: "Architected an asynchronous media upload pipeline integrating Multer and ImageKit CDN to offload binary storage from application servers. Built a scalable RESTful backend in Node.js/Express with MongoDB and an interactive SPA in React 19 and Vite with real-time client-side image previews.",
     architecture: [
       "Asynchronous media upload pipeline with Multer and ImageKit CDN offloading binary storage.",
-      "RESTful backend in Node.js, Express, and MongoDB with structured schema validation middleware.",
+      "RESTful backend in Node.js, Express and MongoDB with structured schema validation middleware.",
       "React 19 & Vite single-page frontend with real-time image previews and graceful loading states.",
       "CORS security policies and environment-driven secrets management for containerized cloud deployment.",
     ],
@@ -209,15 +210,15 @@ export const experiences: Experience[] = [
     location: "Remote",
     period: "Mar 2026 - May 2026",
     type: "Remote",
-    summary: "Spearheaded international operational workflows, technical QA, and Python-based data analytics initiatives for executive KPI reporting.",
+    summary: "Spearheaded international operational workflows, technical QA and Python-based data analytics initiatives for executive KPI reporting.",
     responsibilities: [
       {
         category: "Operations & Workflow Optimization",
-        description: "Managed end-to-end multi-channel operational workflows, streamlining process pipelines, support resolution strategies, and system efficiency.",
+        description: "Managed end-to-end multi-channel operational workflows, streamlining process pipelines, support resolution strategies and system efficiency.",
       },
       {
         category: "Quality Assurance & Platform Management",
-        description: "Spearheaded functional quality assurance, system testing, and platform maintenance to ensure operational reliability and optimal user experience.",
+        description: "Spearheaded functional quality assurance, system testing and platform maintenance to ensure operational reliability and optimal user experience.",
       },
       {
         category: "Business Data Analytics & Reporting",
@@ -233,11 +234,11 @@ export const experiences: Experience[] = [
     location: "Dhaka, Bangladesh",
     period: "Feb 2026 - May 2026",
     type: "On-site",
-    summary: "Led advanced machine learning research, quantitative modeling, and statistical feature optimization resulting in high-impact IEEE and Elsevier publications.",
+    summary: "Led advanced machine learning research, quantitative modeling and statistical feature optimization resulting in high-impact IEEE and Elsevier publications.",
     responsibilities: [
       {
         category: "Quantitative Modeling & Deep Learning",
-        description: "Directed research on deep learning architectures, dual-stream feature fusion networks, and statistical feature selection methodologies.",
+        description: "Directed research on deep learning architectures, dual-stream feature fusion networks and statistical feature selection methodologies.",
       },
       {
         category: "Explainable AI (XAI) Implementation",
@@ -262,7 +263,7 @@ export const credentials: Credential[] = [
     credentialId: "b947gbhsm6sw",
     verifyUrl: "https://verify.skilljar.com/c/b947gbhsm6sw",
     competencies: ["Claude AI", "AI-Assisted Software Engineering", "Agentic Coding Workflows", "Prompt Engineering & Automation"],
-    scope: "Mastered Anthropic's official agentic CLI and development workflows for automated code intelligence, full-codebase navigation, terminal-driven refactoring, and multi-file implementation.",
+    scope: "Mastered Anthropic's official agentic CLI and development workflows for automated code intelligence, full-codebase navigation, terminal-driven refactoring and multi-file implementation.",
   },
   {
     id: "ai-hero-skills",
@@ -282,7 +283,7 @@ export const credentials: Credential[] = [
     credentialId: "UC-d470007e-d7c1-4ab2-8223-4b0b13333c3b",
     verifyUrl: "https://ude.my/UC-d470007e-d7c1-4ab2-8223-4b0b13333c3b",
     competencies: ["SQL", "PostgreSQL", "Relational Database Design", "Query Optimization", "Window Functions"],
-    scope: "Implemented end-to-end relational schema modeling, multi-table joins, subqueries, view definitions, window functions, and database performance indexing.",
+    scope: "Implemented end-to-end relational schema modeling, multi-table joins, subqueries, view definitions, window functions and database performance indexing.",
   },
   {
     id: "hubspot-sales-hub",
@@ -294,7 +295,7 @@ export const credentials: Credential[] = [
     credentialId: "e7373df822814ce9abfc66dac0d6a971",
     verifyUrl: "https://app-na2.hubspot.com/academy/achievements/n7k9k972/en/1/inamul-haque-inam/hubspot-sales-hub-software-certified",
     competencies: ["HubSpot Sales Hub CRM", "Sales Pipeline Architecture", "Deal Tracking & Automation", "Revenue Analytics & Reporting"],
-    scope: "Demonstrates proficiency in utilizing HubSpot Sales Hub CRM to architect, streamline, and execute modern sales pipelines. Validates operational competence in deal tracking, pipeline management, automated sequences, contact management, and revenue reporting.",
+    scope: "Demonstrates proficiency in utilizing HubSpot Sales Hub CRM to architect, streamline and execute modern sales pipelines. Validates operational competence in deal tracking, pipeline management, automated sequences, contact management and revenue reporting.",
   },
   {
     id: "inbound-sales",
@@ -306,7 +307,7 @@ export const credentials: Credential[] = [
     credentialId: "8aa345fea803486cbac62ad882142a15",
     verifyUrl: "https://app-na2.hubspot.com/academy/achievements/hbhznp3l/en/1/inamul-haque-inam/inbound-sales-certified",
     competencies: ["Inbound Sales Methodology", "Buyer-Centric Discovery", "Prospecting & Outreach", "Solution Advising & Closing"],
-    scope: "Mastery of buyer-centric inbound sales methodologies. Validates end-to-end capabilities across identifying target prospects, executing high-converting initial outreach (Connect), conducting thorough discovery calls (Explore), and advising solutions to close deals.",
+    scope: "Mastery of buyer-centric inbound sales methodologies. Validates end-to-end capabilities across identifying target prospects, executing high-converting initial outreach (Connect), conducting thorough discovery calls (Explore) and advising solutions to close deals.",
   },
   {
     id: "linkedin-sales-navigator",
@@ -317,7 +318,7 @@ export const credentials: Credential[] = [
     credentialId: "62b23fq7qyej",
     verifyUrl: "https://verify.skilljar.com/c/62b23fq7qyej",
     competencies: ["LinkedIn Sales Navigator", "ICP Account & Lead Targeting", "Boolean Prospecting Search", "InMail Outreach & Mapping"],
-    scope: "Official credential from LinkedIn Sales Solutions certifying advanced prospecting skills using LinkedIn Sales Navigator. Covers ICP targeting, advanced lead/account filters, Boolean search mechanics, InMail outreach strategies, and pipeline account mapping.",
+    scope: "Official credential from LinkedIn Sales Solutions certifying advanced prospecting skills using LinkedIn Sales Navigator. Covers ICP targeting, advanced lead/account filters, Boolean search mechanics, InMail outreach strategies and pipeline account mapping.",
   },
   {
     id: "agile-crash-course",
@@ -328,7 +329,7 @@ export const credentials: Credential[] = [
     credentialId: "UC-2aab19f4-876a-44e2-ae36-4dbd96c3d533",
     verifyUrl: "https://ude.my/UC-2aab19f4-876a-44e2-ae36-4dbd96c3d533",
     competencies: ["Agile Frameworks", "Scrum Methodology", "Sprint Planning & Retrospectives", "User Stories", "Backlog Refinement"],
-    scope: "Applied modern Agile delivery principles to accelerate release cycles, facilitate cross-functional collaboration, and optimize project delivery workflows.",
+    scope: "Applied modern Agile delivery principles to accelerate release cycles, facilitate cross-functional collaboration and optimize project delivery workflows.",
   },
   {
     id: "latex-unlocked",
@@ -347,14 +348,14 @@ export const education: EducationRecord[] = [
     institution: "Southeast University",
     period: "Feb 2022 - July 2026",
     result: "CGPA: 3.59 / 4.00",
-    highlights: "Core coursework in Data Structures, Algorithms, Machine Learning, Database Management Systems, Software Engineering, and Operating Systems.",
+    highlights: "Core coursework in Data Structures, Algorithms, Machine Learning, Database Management Systems, Software Engineering and Operating Systems.",
   },
   {
     degree: "Higher Secondary Certificate (H.S.C.)",
     institution: "Navy College Dhaka, Dhaka",
     period: "2021",
     result: "GPA: 5.00 / 5.00 (Science)",
-    highlights: "Strong foundational aptitude in Mathematics, Physics, and Analytical Chemistry.",
+    highlights: "Strong foundational aptitude in Mathematics, Physics and Analytical Chemistry.",
   },
   {
     degree: "Secondary School Certificate (S.S.C.)",
@@ -368,22 +369,22 @@ export const education: EducationRecord[] = [
 export const skillCategories: SkillCategory[] = [
   {
     title: "AI-Native & Software Engineering",
-    description: "Full-stack development, agentic workflows, and robust system architecture.",
+    description: "Full-stack development, agentic workflows and robust system architecture.",
     skills: ["Python", "TypeScript", "JavaScript", "Next.js", "React.js", "Node.js", "Express.js", "Agentic Workflows", "Intelligent Process Automation", "RESTful APIs", "System Architecture & Design", "Zod Validation"],
   },
   {
     title: "Data Science, Machine Learning & Research",
-    description: "Explainable AI, predictive modeling, and clinical feature engineering.",
+    description: "Explainable AI, predictive modeling and clinical feature engineering.",
     skills: ["Predictive Modeling", "Explainable AI (XAI / SHAP)", "Ensemble Learning", "Deep Learning Architectures", "Scikit-Learn", "Pandas", "NumPy", "Statistical Data Analysis", "Quantitative Research Methodologies"],
   },
   {
     title: "Business Strategy, Finance & Operations",
-    description: "Operational optimization, CRM architecture, KPI reporting, and strategic decision-making.",
+    description: "Operational optimization, CRM architecture, KPI reporting and strategic decision-making.",
     skills: ["Business Development", "HubSpot Sales Hub CRM", "LinkedIn Sales Navigator", "Inbound Sales Methodology", "B2B Sales Pipeline Architecture", "Market Research", "Financial Data Modeling", "Operational KPI Analytics", "Process Optimization", "Quantitative Decision-Making", "Cross-Functional Team Leadership", "Stakeholder Communication", "Risk Management Fundamentals"],
   },
   {
     title: "Databases, Tools & Methodologies",
-    description: "Production database systems, cloud workflows, and agile execution.",
+    description: "Production database systems, cloud workflows and agile execution.",
     skills: ["PostgreSQL", "MongoDB", "Prisma ORM", "Advanced Excel (Pivot Tables, Scenario Modeling, VLOOKUP)", "Power BI", "Tableau", "Git / GitHub", "CI/CD (GitHub Actions)", "Postman", "Agile/Scrum Frameworks", "102 WPM Typing Speed"],
   },
 ];

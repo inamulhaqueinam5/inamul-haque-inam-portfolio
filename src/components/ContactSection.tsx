@@ -28,7 +28,7 @@ export const ContactSection: React.FC = () => {
             Let&apos;s Build Something Remarkable
           </h2>
           <p className="text-base sm:text-lg text-ink-secondary leading-relaxed">
-            Actively open for Software Engineering, AI/ML, Data Analytics, and Corporate Business Development / MTO roles. Feel free to connect directly.
+            Actively open for Software Engineering, AI/ML, Data Analytics and Corporate Business Development / MTO roles. Feel free to connect directly.
           </p>
         </div>
 
@@ -109,7 +109,7 @@ export const ContactSection: React.FC = () => {
                 {personalInfo.location}
               </div>
               <p className="text-xs text-ink-tertiary leading-relaxed">
-                Available for on-site, hybrid, and global remote roles.
+                Available for on-site, hybrid and global remote roles.
               </p>
             </div>
 
