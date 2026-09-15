@@ -3,6 +3,7 @@ import { CustomCursor } from "@/components/CustomCursor";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://inamul-haque-inam-portfolio.vercel.app"),
   title: "Inamul Haque Inam | AI-Native Software Engineer & Business Strategist",
   description:
     "Portfolio of Inamul Haque Inam: AI-Native CSE Graduate bridging Explainable AI research, production full-stack engineering and international business operations.",
@@ -22,8 +23,26 @@ export const metadata: Metadata = {
     title: "Inamul Haque Inam | AI-Native Software Engineer & Business Strategist",
     description:
       "Bridging peer-reviewed Explainable AI research, production full-stack systems and KPI-driven international business operations.",
-    type: "website",
+    url: "https://inamul-haque-inam-portfolio.vercel.app/",
+    siteName: "Inamul Haque Inam Portfolio",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Inamul Haque Inam | AI-Native Software Engineer & Business Strategist",
+        type: "image/png",
+      },
+    ],
     locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Inamul Haque Inam | AI-Native Software Engineer & Business Strategist",
+    description:
+      "Bridging peer-reviewed Explainable AI research, production full-stack systems and KPI-driven international business operations.",
+    images: ["/og-image.png"],
   },
 };
 
