@@ -34,6 +34,26 @@ _Avoid_: ClientWrapper, UIHelper, ClientBridge
 The architectural pattern wherein leaf interaction adapters receive pre-rendered React Server Component nodes directly paired with their filtering or grouping keys in a single typed collection (`{ id, category, content }`), eliminating detached metadata arrays and fragile index alignment.
 _Avoid_: ParallelArrays, MetadataIndexMatch, DetachedFilterProps
 
+**SlottedFilterGallery**:
+The canonical leaf interaction adapter module implementing category derivation, spring-physics active indicators, category count badges and layout transitions for slotted Server Component nodes.
+_Avoid_: ProjectFilterGallery, CredentialFilterGallery, CategoryTabs, ContentFilter
+
+**ProjectCard**:
+The canonical presentation card module encapsulating two-column architectural breakdown, impact callouts, engineering decision lists, tech stack chips and external action links for featured engineering systems.
+_Avoid_: ProjectBox, PortfolioCard, ProjectItem
+
+**ResearchCard**:
+The canonical presentation card module encapsulating venue metadata, review status, research problem and methodology callouts, quantitative metrics grid, external publication links and keyword tags for peer-reviewed scientific publications.
+_Avoid_: PublicationCard, PaperItem, ResearchBlock
+
+**ExperienceCard**:
+The canonical presentation card module encapsulating organization metadata, location and work arrangement, calendar period, executive summary, categorized deliverables breakdown and applied competency tags for professional operational and research roles.
+_Avoid_: JobCard, CareerEntry, WorkHistoryBlock
+
+**CredentialCard**:
+The canonical presentation card module encapsulating issuer styling, verification status, date validity and credential competency tags for verified professional credentials.
+_Avoid_: CertificateCard, CertificationItem, CredentialBlock
+
 **EvidenceAction**:
 The canonical interactive action module encapsulating external link security invariants (`rel="noopener noreferrer"`), accessible screen-reader titles, Signal Accent physics, and icon mechanics for verified Evidence Records.
 _Avoid_: ExternalLinkButton, ActionPill, LinkHelper

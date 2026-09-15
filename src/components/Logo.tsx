@@ -35,8 +35,8 @@ export const Logo: React.FC<LogoProps> = ({ className = "", size = "md", imageUr
             alt={personalInfo.name}
             width={48}
             height={48}
-            className="w-full h-full object-cover rounded-[10px]"
-            unoptimized
+            className="w-full h-full object-cover object-top rounded-[10px]"
+            priority
           />
         ) : (
           <>

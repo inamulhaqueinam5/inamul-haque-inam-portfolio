@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Inamul Haque Inam | AI-Native Software Engineer & Business Strategist",
   description:
-    "Portfolio of Inamul Haque Inam — AI-Native CSE Graduate bridging Explainable AI research, production full-stack engineering, and international business operations.",
+    "Portfolio of Inamul Haque Inam: AI-Native CSE Graduate bridging Explainable AI research, production full-stack engineering and international business operations.",
   keywords: [
     "Inamul Haque Inam",
     "Software Engineer",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Inamul Haque Inam | AI-Native Software Engineer & Business Strategist",
     description:
-      "Bridging peer-reviewed Explainable AI research, production full-stack systems, and KPI-driven international business operations.",
+      "Bridging peer-reviewed Explainable AI research, production full-stack systems and KPI-driven international business operations.",
     type: "website",
     locale: "en_US",
   },

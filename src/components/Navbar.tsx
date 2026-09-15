@@ -20,35 +20,65 @@ export const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
-    const handleScroll = () => {
+    const sectionIds = [
+      "skills",
+      "research",
+      "projects",
+      "experience",
+      "education",
+      "certifications",
+    ];
+
+    const updateActiveSection = () => {
       setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
-  useEffect(() => {
-    const sectionIds = ["skills", "research", "projects", "experience", "education", "certifications"];
-    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+      const threshold = 160;
+      let current = "";
+
+      const isAtBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 80;
+
+      if (isAtBottom) {
+        current = sectionIds[sectionIds.length - 1];
+      } else {
+        for (const id of sectionIds) {
+          const el = document.getElementById(id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= threshold && rect.bottom > threshold) {
+              current = id;
+              break;
+            }
+          }
         }
-      });
+      }
+
+      setActiveSection(current);
     };
 
-    const observer = new IntersectionObserver(handleIntersection, {
-      root: null,
-      rootMargin: "-20% 0px -55% 0px",
-      threshold: 0.1,
-    });
+    updateActiveSection();
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveSection();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
 
-    return () => observer.disconnect();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    window.addEventListener("hashchange", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("hashchange", updateActiveSection);
+    };
   }, []);
 
   const navLinks: { name: string; href: string; badge?: string }[] = [
@@ -91,6 +121,7 @@ export const Navbar: React.FC = () => {
                 <a
                   key={link.name}
                   href={link.href}
+                  onClick={() => setActiveSection(targetId)}
                   className={`relative px-3 py-1.5 text-xs lg:text-sm font-medium transition-colors rounded-lg flex items-center gap-1.5 outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D] ${
                     isActive
                       ? "text-brand-emerald font-semibold"
@@ -170,7 +201,10 @@ export const Navbar: React.FC = () => {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.04, duration: 0.2 }}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => {
+                      setActiveSection(targetId);
+                      setMobileMenuOpen(false);
+                    }}
                     className={`px-3 py-2.5 rounded-lg text-sm font-medium transition-colors flex items-center justify-between ${
                       isActive
                         ? "text-brand-emerald bg-brand-emerald/10 font-semibold"

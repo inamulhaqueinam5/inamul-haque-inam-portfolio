@@ -31,7 +31,12 @@
     caret-color: #10b981;
   }
 
-  /* Custom subtle scrollbar */
+  /* Cross-browser subtle scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #1e2433 #08090d;
+  }
+
   ::-webkit-scrollbar {
     width: 8px;
   }
