@@ -16,7 +16,7 @@ interface Node {
 export const NeuralMesh: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = false;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -90,7 +90,13 @@ export const NeuralMesh: React.FC = () => {
     }
 
     // Pause RAF when off-screen
-    // Observer added in next commit
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
 
     // Visibility change listener for background tabs
     const handleVisibilityChange = () => {
