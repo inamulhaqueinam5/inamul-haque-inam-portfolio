@@ -9,13 +9,15 @@ import {
 import { personalInfo } from "@/data/portfolioData";
 import { AnimateInView } from "@/components/AnimateInView";
 import { HeroCardCarousel } from "@/components/HeroCardCarousel";
+import { NeuralMesh } from "@/components/NeuralMesh";
 
 export const Hero: React.FC = () => {
   const avatarSrc = personalInfo.avatar || "/images/inamul-haque-inam.png";
 
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 overflow-hidden">
-      {/* Background ambient lighting */}
+      {/* Background ambient lighting & interactive neural synapse mesh */}
+      <NeuralMesh />
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[400px] bg-brand-emerald/10 rounded-full blur-[130px] pointer-events-none animate-ambient-pulse" />
       <div className="absolute top-1/3 right-1/4 w-[450px] h-[320px] bg-brand-cyan/10 rounded-full blur-[110px] pointer-events-none animate-ambient-pulse-reverse" />
