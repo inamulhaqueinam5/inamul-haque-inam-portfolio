@@ -8,6 +8,7 @@ import {
 import { Publication } from "@/types";
 import { ShowcaseCard } from "@/components/ShowcaseCard";
 import { EvidenceAction } from "@/components/EvidenceAction";
+import { MetricCounter } from "@/components/MetricCounter";
 
 export interface ResearchCardProps {
   publication: Publication;
@@ -68,20 +69,14 @@ export const ResearchCard: React.FC<ResearchCardProps> = ({
           </div>
         </div>
 
-        {/* Metrics Grid */}
+        {/* Metrics Grid with Animated Telemetry */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
           {publication.metrics.map((m, idx) => (
-            <div
+            <MetricCounter
               key={idx}
-              className="p-2.5 rounded-lg bg-[#08090D] border border-surface-border text-center"
-            >
-              <div className="text-xs sm:text-sm font-bold font-mono text-ink-primary text-brand-emerald tracking-tight">
-                {m.value}
-              </div>
-              <div className="text-[10px] text-ink-tertiary mt-0.5 truncate">
-                {m.label}
-              </div>
-            </div>
+              value={m.value}
+              label={m.label}
+            />
           ))}
         </div>
       </div>
