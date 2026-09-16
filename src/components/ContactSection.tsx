@@ -10,6 +10,7 @@ import {
 import { personalInfo } from "@/data/portfolioData";
 import { CopyButton } from "@/components/CopyButton";
 import { ShowcaseCard } from "@/components/ShowcaseCard";
+import { MagneticButton } from "@/components/MagneticButton";
 
 export const ContactSection: React.FC = () => {
 
@@ -167,14 +168,16 @@ export const ContactSection: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
-            <a
-              href="mailto:inamulhaqueinam5@gmail.com?subject=Resume%20Request%20-%20Inamul%20Haque%20Inam"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs font-semibold text-[#08090D] bg-brand-emerald hover:bg-brand-emerald-light shadow-glow-emerald transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
-            >
-              <FileText className="w-4 h-4" />
-              <span>Get Comprehensive CV</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
+            <MagneticButton>
+              <a
+                href="mailto:inamulhaqueinam5@gmail.com?subject=Resume%20Request%20-%20Inamul%20Haque%20Inam"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs font-semibold text-[#08090D] bg-brand-emerald hover:bg-brand-emerald-light shadow-glow-emerald transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
+              >
+                <FileText className="w-4 h-4" />
+                <span>Get Comprehensive CV</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </MagneticButton>
           </div>
         </div>
       </div>

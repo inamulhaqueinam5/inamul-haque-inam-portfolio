@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { personalInfo } from "@/data/portfolioData";
 import { Logo } from "@/components/Logo";
+import { MagneticButton } from "@/components/MagneticButton";
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -155,14 +156,16 @@ export const Navbar: React.FC = () => {
               <Mail className="w-3.5 h-3.5 text-brand-emerald" />
               <span>Contact</span>
             </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-[#08090D] bg-gradient-to-r from-brand-emerald to-brand-emerald-light hover:brightness-110 rounded-lg shadow-glow-emerald transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
-            >
-              <FileText className="w-3.5 h-3.5" />
-              <span>Hire Me</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+            <MagneticButton>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-[#08090D] bg-gradient-to-r from-brand-emerald to-brand-emerald-light hover:brightness-110 rounded-lg shadow-glow-emerald transition-all active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>Hire Me</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </MagneticButton>
           </div>
 
           {/* Mobile Menu Toggle */}
