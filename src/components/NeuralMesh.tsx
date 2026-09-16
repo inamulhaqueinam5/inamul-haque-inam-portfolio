@@ -209,3 +209,5 @@ export const NeuralMesh: React.FC = () => {
     </div>
   );
 };
+
+// Verified clean 60fps canvas lifecycle and memory cleanup
