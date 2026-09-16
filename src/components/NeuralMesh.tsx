@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 interface Node {
   x: number;
@@ -14,5 +14,9 @@ interface Node {
 
 export const NeuralMesh: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  return <div className="absolute inset-0 pointer-events-none" aria-hidden="true"><canvas ref={canvasRef} /></div>;
+  const containerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    // Initialize nodes and velocity drift loop
+  }, []);
+  return <div ref={containerRef} className="absolute inset-0 pointer-events-none" aria-hidden="true"><canvas ref={canvasRef} /></div>;
 };
