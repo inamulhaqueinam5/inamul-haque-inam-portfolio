@@ -74,7 +74,7 @@ export const MetricCounter: React.FC<MetricCounterProps> = ({
     >
       <div
         className={`text-xs sm:text-sm font-bold font-mono tracking-tight transition-colors duration-300 ${
-          "text-brand-emerald"
+          hasCompleted ? "text-brand-emerald" : "text-brand-emerald/80"
         }`}
       >
         <span>{prefix}</span>
