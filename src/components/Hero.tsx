@@ -103,29 +103,33 @@ export const Hero: React.FC = () => {
               <MagneticButton>
                 <a
                   href="#research"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-[#08090D] bg-brand-emerald hover:bg-brand-emerald-light rounded-xl shadow-glow-emerald transition-all hover:scale-[1.02] active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
-              >
-                <BookOpen className="w-4 h-4" />
-                <span>Explore Published Research</span>
-                <ArrowRight className="w-4 h-4" />
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-[#08090D] bg-brand-emerald hover:bg-brand-emerald-light rounded-xl shadow-glow-emerald transition-all hover:scale-[1.02] active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
+                >
+                  <BookOpen className="w-4 h-4" />
+                  <span>Explore Published Research</span>
+                  <ArrowRight className="w-4 h-4" />
                 </a>
               </MagneticButton>
 
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-ink-primary bg-surface-subtle hover:bg-surface-elevated border border-surface-border hover:border-brand-cyan/40 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
-              >
-                <Layers className="w-4 h-4 text-brand-cyan" />
-                <span>View Projects</span>
-              </a>
+              <MagneticButton>
+                <a
+                  href="#projects"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-ink-primary bg-surface-subtle hover:bg-surface-elevated border border-surface-border hover:border-brand-cyan/40 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
+                >
+                  <Layers className="w-4 h-4 text-brand-cyan" />
+                  <span>View Projects</span>
+                </a>
+              </MagneticButton>
 
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2.5 px-5 py-3.5 text-sm font-medium text-ink-secondary hover:text-ink-primary border border-surface-border hover:border-brand-emerald/40 bg-surface/40 hover:bg-surface rounded-xl transition-all active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
-              >
-                <Mail className="w-4 h-4 text-brand-emerald" />
-                <span>Get in Touch</span>
-              </a>
+              <MagneticButton>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2.5 px-5 py-3.5 text-sm font-medium text-ink-secondary hover:text-ink-primary border border-surface-border hover:border-brand-emerald/40 bg-surface/40 hover:bg-surface rounded-xl transition-all active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
+                >
+                  <Mail className="w-4 h-4 text-brand-emerald" />
+                  <span>Get in Touch</span>
+                </a>
+              </MagneticButton>
             </AnimateInView>
           </div>
 
