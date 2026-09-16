@@ -10,6 +10,7 @@ import { personalInfo } from "@/data/portfolioData";
 import { AnimateInView } from "@/components/AnimateInView";
 import { HeroCardCarousel } from "@/components/HeroCardCarousel";
 import { NeuralMesh } from "@/components/NeuralMesh";
+import { MagneticButton } from "@/components/MagneticButton";
 
 export const Hero: React.FC = () => {
   const avatarSrc = personalInfo.avatar || "/images/inamul-haque-inam.png";
@@ -99,14 +100,16 @@ export const Hero: React.FC = () => {
               yOffset={20}
               className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-4"
             >
-              <a
-                href="#research"
+              <MagneticButton>
+                <a
+                  href="#research"
                 className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-[#08090D] bg-brand-emerald hover:bg-brand-emerald-light rounded-xl shadow-glow-emerald transition-all hover:scale-[1.02] active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-brand-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-[#08090D]"
               >
                 <BookOpen className="w-4 h-4" />
                 <span>Explore Published Research</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+                </a>
+              </MagneticButton>
 
               <a
                 href="#projects"
