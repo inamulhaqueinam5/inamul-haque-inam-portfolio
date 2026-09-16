@@ -90,13 +90,7 @@ export const NeuralMesh: React.FC = () => {
     }
 
     // Pause RAF when off-screen
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-      },
-      { threshold: 0.05 }
-    );
-    observer.observe(container);
+    // Observer added in next commit
 
     // Visibility change listener for background tabs
     const handleVisibilityChange = () => {
@@ -166,7 +160,18 @@ export const NeuralMesh: React.FC = () => {
         // Connect nodes to cursor if close
         const dxCursor = mouse.x - node.x;
         const dyCursor = mouse.y - node.y;
-        // Cursor filaments added in next commit
+        const distCursor = Math.hypot(dxCursor, dyCursor);
+
+        if (distCursor < mouse.radius) {
+          const cursorFilamentAlpha = (1 - distCursor / mouse.radius) * 0.35;
+          ctx.beginPath();
+          ctx.moveTo(node.x, node.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = "#06B6D4";
+          ctx.globalAlpha = cursorFilamentAlpha;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
       }
 
       ctx.globalAlpha = 1;
